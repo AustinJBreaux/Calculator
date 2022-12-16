@@ -20,4 +20,42 @@ Create all calculator operations:
         Snarky message if someone tries to divide by 0
     Toggle button for allowing keyboard controls
     Backspace button
+
+Pseudocode:
+displayWindow = '' initially
+Add event listener if target = button 
+        let firstNumber = Button string
+        displayWindow = displayWindow + firstNumber + ' '
+    if displayWindow contains +-*%
+        let secondNumber = button string
+        displayWindow = displayWindow + secondNumber + ' '
+    else return
+If displayWindow != ''
+        displayWindow = displayWindow + operator
+    else if operator is clicked, replace old operator with new
+    else return
+addEventListener clearbutton
+    let displayWindow = ''
+    let firstNumber = ''
+    let operator = ''
+    let secondNumber = ''
+addEventListener backspace
+    invert displayWindow
+    splice every ' '
+    remove lastChild
+addEventListener =
+    splice every ' '
+    parseInt or regex number/operator on splices
+    result = firstNumber operator secondNumber
+    displayWindow = result
+    if decimal math.floor
+    if operator = % and secondNumber = 0
+        zeroErrorCounter ++
+        if zeroErrorCounter > 1 cheekyZeroMessage
+        cheekyZeroMessage
+            pick random number between 1-10, each causes a different message
+            ex. "Instructions unclear, universe accidentally destroyed"
+addEventListener +/-
+    operator = *
+    secondNumber = -1
 */
