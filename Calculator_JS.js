@@ -81,3 +81,14 @@ If displayWindow != ''
         firstNumber = ${firstNumber}+'.'+'decimalNumber
 
 */
+
+const numberClick = function numberClick(e){
+    console.log("active")
+    if (e.target.classList == 'numberButton'){
+        //code
+        console.log(e);
+    }
+    else console.log('fail')
+}
+
+document.addEventListener("click", numberClick)
