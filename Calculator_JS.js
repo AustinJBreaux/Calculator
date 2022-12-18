@@ -83,12 +83,32 @@ If displayWindow != ''
 */
 
 const numberClick = function numberClick(e){
-    console.log("active")
-    if (e.target.classList == 'numberButton'){
-        //code
-        console.log(e);
-    }
-    else console.log('fail')
+    //code
 }
 
-document.addEventListener("click", numberClick)
+const operatorClick = function operatorClick(e){
+    //code
+}
+
+const clearButtonClick = function clearButtonClick(e){
+    //code
+}
+
+const parenthesisButtonClick = function parenthesisButtonClick(e){
+    //code
+}
+
+const backspaceButtonClick = function backspaceButtonClick(e){
+    //code
+}
+
+ const signChangeButtonClick = function signChangeButtonClick(e){
+    //code
+ }
+
+ const decimalButtonClick = function decimalButtonClick(e){
+    //code
+ }
+
+document.addEventListener("click", numberClick);
+document.addEventListener("click", operatorClick);
