@@ -86,7 +86,7 @@ const numberClick = function numberClick(e){
     if(e.target.classList != 'numberButton'){
         return
     }
-    else console.log('correct')
+    else console.log(e.target.innerText)
 }
 
 const operatorClick = function operatorClick(e){
@@ -112,8 +112,6 @@ const backspaceButtonClick = function backspaceButtonClick(e){
  const decimalButtonClick = function decimalButtonClick(e){
     //code
  }
-
- console.log('test');
 
 document.addEventListener("click", numberClick);
 //document.addEventListener("click", operatorClick);
