@@ -97,24 +97,44 @@ const operatorClick = function operatorClick(e){
 }
 
 const clearButtonClick = function clearButtonClick(e){
-    //code
+    if(e.target.classList != 'clearButton'){
+        return
+    }
+    else console.log(e.target.innerText);
 }
 
 const parenthesisButtonClick = function parenthesisButtonClick(e){
-    //code
+    if(e.target.classList != 'parenthesisButton'){
+        return
+    }
+    else console.log(e.target.innerText);
 }
 
 const backspaceButtonClick = function backspaceButtonClick(e){
-    //code
+    if(e.target.classList != 'backspaceButton'){
+        return
+    }
+    else console.log(e.target.innerText);
 }
 
  const signChangeButtonClick = function signChangeButtonClick(e){
-    //code
+    if(e.target.classList != 'signChangeButton'){
+        return
+    }
+    else console.log(e.target.innerText);
  }
 
  const decimalButtonClick = function decimalButtonClick(e){
-    //code
+    if(e.target.classList != 'decimalButton'){
+        return
+    }
+    else console.log(e.target.innerText);
  }
 
 document.addEventListener("click", numberClick);
 document.addEventListener("click", operatorClick);
+document.addEventListener("click", clearButtonClick);
+document.addEventListener("click", parenthesisButtonClick);
+document.addEventListener("click", backspaceButtonClick);
+document.addEventListener("click", signChangeButtonClick);
+document.addEventListener("click", decimalButtonClick);
