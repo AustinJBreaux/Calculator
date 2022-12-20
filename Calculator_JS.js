@@ -83,7 +83,7 @@ If displayWindow != ''
 */
 
 const numberClick = function numberClick(e){
-    //code
+    console.log(e.target);
 }
 
 const operatorClick = function operatorClick(e){
@@ -110,5 +110,11 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     //code
  }
 
+ const clickLog = function clickLog(){
+    console.log(e.target);
+ }
+ console.log('test');
+
 document.addEventListener("click", numberClick);
 document.addEventListener("click", operatorClick);
+document.addEventListener("click", clickLog)
