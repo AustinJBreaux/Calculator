@@ -81,12 +81,20 @@ If displayWindow != ''
         firstNumber = ${firstNumber}+'.'+'decimalNumber
 
 */
+//Global Variables
+let displayWindow = '';
 
-const numberClick = function numberClick(e){
+//Button Functions
+const numberClick = function numberClick(e, displayWindow){
     if(e.target.classList != 'numberButton'){
         return
     }
-    else console.log(e.target.innerText);
+    else{
+        let firstNumber = e.target.innerText;
+        displayWindow = firstNumber+displayWindow;
+        console.log(displayWindow);
+    }
+    //else console.log('Nope')
 }
 
 const operatorClick = function operatorClick(e){
@@ -130,7 +138,15 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else console.log(e.target.innerText);
  }
+ //temp
+ const logDisplayWindow = function logDisplayWindow(e){
+    if(e.target.classList != "displayWindowButton"){
+        return
+    }
+    else console.log(displayWindow);
+ }
 
+//Event Listeners
 document.addEventListener("click", numberClick);
 document.addEventListener("click", operatorClick);
 document.addEventListener("click", clearButtonClick);
@@ -138,3 +154,5 @@ document.addEventListener("click", parenthesisButtonClick);
 document.addEventListener("click", backspaceButtonClick);
 document.addEventListener("click", signChangeButtonClick);
 document.addEventListener("click", decimalButtonClick);
+//temp
+document.addEventListener("click", logDisplayWindow)
