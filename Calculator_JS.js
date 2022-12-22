@@ -85,16 +85,16 @@ If displayWindow != ''
 let displayWindow = {};
 
 //Button Functions
-const numberClick = function numberClick(e, displayWindow){
+const numberClick = function numberClick(e){
     if(e.target.classList != 'numberButton'){
         return
     }
-    else{
+    else if (displayWindow.noSuchProperty === undefined){
         let firstNumber = e.target.innerText;
         let displayWindow = firstNumber;
         console.log(displayWindow);
     }
-    //else console.log('Nope')
+    else console.log('Nope')
 }
 
 const operatorClick = function operatorClick(e){
