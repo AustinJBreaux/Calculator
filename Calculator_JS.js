@@ -82,7 +82,7 @@ If displayWindow != ''
 
 */
 //Global Variables
-let displayWindow = '';
+let displayWindow = {};
 
 //Button Functions
 const numberClick = function numberClick(e, displayWindow){
@@ -91,7 +91,7 @@ const numberClick = function numberClick(e, displayWindow){
     }
     else{
         let firstNumber = e.target.innerText;
-        displayWindow = firstNumber+displayWindow;
+        let displayWindow = firstNumber;
         console.log(displayWindow);
     }
     //else console.log('Nope')
