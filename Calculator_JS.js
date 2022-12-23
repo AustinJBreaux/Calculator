@@ -113,9 +113,7 @@ const clearButtonClick = function clearButtonClick(e){
         return
     }
     else if(displayWindow.noSuchProperty === undefined){
-        let toInsert = e.target.innerText;
-        displayWindow = toInsert;
-        console.log(displayWindow);
+        displayWindow = '';
     }
 }
 
