@@ -101,7 +101,7 @@ const operatorClick = function operatorClick(e){
     if(e.target.classList != 'operatorButton'){
         return
     }
-    else console.log(e.target.innerText);
+    else if(displayWindow) console.log(e.target.innerText);
 }
 
 const clearButtonClick = function clearButtonClick(e){
