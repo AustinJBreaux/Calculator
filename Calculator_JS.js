@@ -103,7 +103,7 @@ const operatorClick = function operatorClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = toInsert;
+        displayWindow = displayWindow + toInsert;
         console.log(toInsert);
     }
 }
@@ -123,7 +123,7 @@ const parenthesisButtonClick = function parenthesisButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = toInsert;
+        displayWindow = displayWindow + toInsert;
         console.log(toInsert);
     }
 }
@@ -134,7 +134,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = toInsert;
+        displayWindow = displayWindow + toInsert;
         console.log(toInsert);
     }
 }
@@ -145,7 +145,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = toInsert;
+        displayWindow = displayWindow + toInsert;
         console.log(toInsert);
     }
  }
@@ -156,7 +156,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = toInsert;
+        displayWindow = displayWindow + toInsert;
         console.log(toInsert);
     }
  }
