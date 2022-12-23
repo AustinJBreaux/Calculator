@@ -133,9 +133,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
         return
     }
     else if(displayWindow.noSuchProperty === undefined){
-        let toInsert = e.target.innerText;
-        displayWindow = displayWindow + toInsert;
-        console.log(toInsert);
+        displayWindow = displayWindow.slice(0,-1);
     }
 }
 
