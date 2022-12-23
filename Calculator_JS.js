@@ -92,7 +92,7 @@ const numberClick = function numberClick(e){
     else if (displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + toInsert;
-        console.log(displayWindow);
+        console.log(toInsert);
     }
     else console.log('Nope')
 }
@@ -104,7 +104,7 @@ const operatorClick = function operatorClick(e){
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = toInsert;
-        console.log(displayWindow);
+        console.log(toInsert);
     }
 }
 
@@ -113,7 +113,7 @@ const clearButtonClick = function clearButtonClick(e){
         return
     }
     else if(displayWindow.noSuchProperty === undefined){
-        displayWindow = '';
+        displayWindow = ''
     }
 }
 
@@ -124,7 +124,7 @@ const parenthesisButtonClick = function parenthesisButtonClick(e){
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = toInsert;
-        console.log(displayWindow);
+        console.log(toInsert);
     }
 }
 
@@ -135,7 +135,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = toInsert;
-        console.log(displayWindow);
+        console.log(toInsert);
     }
 }
 
@@ -146,7 +146,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = toInsert;
-        console.log(displayWindow);
+        console.log(toInsert);
     }
  }
 
@@ -157,7 +157,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = toInsert;
-        console.log(displayWindow);
+        console.log(toInsert);
     }
  }
  //temp
