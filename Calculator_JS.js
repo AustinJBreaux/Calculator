@@ -82,7 +82,7 @@ If displayWindow != ''
 
 */
 //Global Variables
-let displayWindow = {};
+let displayWindow = '';
 
 //Button Functions
 const numberClick = function numberClick(e){
@@ -90,8 +90,8 @@ const numberClick = function numberClick(e){
         return
     }
     else if (displayWindow.noSuchProperty === undefined){
-        let firstNumber = e.target.innerText;
-        let displayWindow = firstNumber;
+        let toInsert = e.target.innerText;
+        displayWindow = displayWindow + toInsert;
         console.log(displayWindow);
     }
     else console.log('Nope')
@@ -101,49 +101,75 @@ const operatorClick = function operatorClick(e){
     if(e.target.classList != 'operatorButton'){
         return
     }
-    else if(displayWindow) console.log(e.target.innerText);
+    else if(displayWindow.noSuchProperty === undefined){
+        let toInsert = e.target.innerText;
+        displayWindow = toInsert;
+        console.log(displayWindow);
+    }
 }
 
 const clearButtonClick = function clearButtonClick(e){
     if(e.target.classList != 'clearButton'){
         return
     }
-    else console.log(e.target.innerText);
+    else if(displayWindow.noSuchProperty === undefined){
+        let toInsert = e.target.innerText;
+        displayWindow = toInsert;
+        console.log(displayWindow);
+    }
 }
 
 const parenthesisButtonClick = function parenthesisButtonClick(e){
     if(e.target.classList != 'parenthesisButton'){
         return
     }
-    else console.log(e.target.innerText);
+    else if(displayWindow.noSuchProperty === undefined){
+        let toInsert = e.target.innerText;
+        displayWindow = toInsert;
+        console.log(displayWindow);
+    }
 }
 
 const backspaceButtonClick = function backspaceButtonClick(e){
     if(e.target.classList != 'backspaceButton'){
         return
     }
-    else console.log(e.target.innerText);
+    else if(displayWindow.noSuchProperty === undefined){
+        let toInsert = e.target.innerText;
+        displayWindow = toInsert;
+        console.log(displayWindow);
+    }
 }
 
  const signChangeButtonClick = function signChangeButtonClick(e){
     if(e.target.classList != 'signChangeButton'){
         return
     }
-    else console.log(e.target.innerText);
+    else if(displayWindow.noSuchProperty === undefined){
+        let toInsert = e.target.innerText;
+        displayWindow = toInsert;
+        console.log(displayWindow);
+    }
  }
 
  const decimalButtonClick = function decimalButtonClick(e){
     if(e.target.classList != 'decimalButton'){
         return
     }
-    else console.log(e.target.innerText);
+    else if(displayWindow.noSuchProperty === undefined){
+        let toInsert = e.target.innerText;
+        displayWindow = toInsert;
+        console.log(displayWindow);
+    }
  }
  //temp
  const logDisplayWindow = function logDisplayWindow(e){
     if(e.target.classList != "displayWindowButton"){
         return
     }
-    else console.log(displayWindow);
+    else if(displayWindow.noSuchProperty === undefined){
+        console.log(displayWindow);
+    }
  }
 
 //Event Listeners
