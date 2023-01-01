@@ -146,6 +146,17 @@ const backspaceButtonClick = function backspaceButtonClick(e){
         displayWindow = displayWindow + toInsert;
         console.log(toInsert);
     }
+    /*Pseudo for sign change
+    Delete the above else if
+    else{
+        splice displayWindow every operator
+        add to array
+            if lastChild = integer
+                lastchild = lastchild * -1
+                combine array to string
+            else log error "Sign change button must be used on an integer"
+    }
+    */
  }
 
  const decimalButtonClick = function decimalButtonClick(e){
