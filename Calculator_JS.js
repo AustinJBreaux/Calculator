@@ -24,8 +24,6 @@ Create all calculator operations:
 
 Pseudocode:
 
-displayWindow = '' initially
-
 Add event listener if target = button 
         let firstNumber = Button string
         displayWindow = displayWindow + firstNumber + ' '
@@ -34,11 +32,6 @@ Add event listener if target = button
         displayWindow = displayWindow + secondNumber + ' '
     else return
 
-Operator
-If displayWindow != ''
-        displayWindow = displayWindow + operator
-    else if operator is clicked, replace old operator with new
-    else return
 
 (clear)
     addEventListener 
@@ -47,11 +40,6 @@ If displayWindow != ''
         let operator = ''
         let secondNumber = ''
 
-(backspace)
-    addEventListener 
-        invert displayWindow
-        splice every ' '
-        remove lastChild
 
 (=)
     addEventListener 
@@ -69,10 +57,6 @@ If displayWindow != ''
         Math.floor(answer)
         displayWindow = answer
 
-(+/-)
-    addEventListener 
-    operator = *
-    secondNumber = -1
 
 (.)
     addEventListener
