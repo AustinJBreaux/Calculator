@@ -143,6 +143,18 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     */
  }
 
+ const enterButtonClick = function enterButtonClick(e){
+    if(e.target.classList != 'enterButton'){
+        return
+    }
+    else if(displayWindow === ''){
+        return
+    }
+    else if(displayWindow != undefined || ''){
+        console.log(displayWindow);
+    }
+}
+
  const decimalButtonClick = function decimalButtonClick(e){
     if(e.target.classList != 'decimalButton'){
         return
@@ -171,5 +183,6 @@ document.addEventListener("click", parenthesisButtonClick);
 document.addEventListener("click", backspaceButtonClick);
 document.addEventListener("click", signChangeButtonClick);
 document.addEventListener("click", decimalButtonClick);
+document.addEventListener("click", enterButtonClick);
 //temp
 document.addEventListener("click", logDisplayWindow)
