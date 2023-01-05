@@ -73,6 +73,16 @@ const numberClick = function numberClick(e){
     if(e.target.classList != 'numberButton'){
         return
     }
+    /*
+    else if(displayWindow[displayWindow.length-1] = Number){
+        let lastChar = displayWindow[displayWindow.length -1];
+        regExp = /"/;
+        newLastChar = lastChar.split(regExp);
+        console.log(newLastChar);
+        //let toInsert = e.target.innerText;
+        //displayWindow = displayWindow + 
+    }
+    */
     else if (displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + `"${toInsert}"`
@@ -127,9 +137,14 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     if(e.target.classList != 'signChangeButton'){
         return
     }
-    else{
-        // 
+    /* Replace after "7""7" bug is fixed
+    else if (displayWindow[displayWindow.length-1] = Number){
+        console.log("Success")
     }
+    else{
+        console.log("Fail")
+    }
+    */
     
     /*Pseudo for sign change
     Delete the above else if
