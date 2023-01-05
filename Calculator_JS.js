@@ -66,7 +66,7 @@ Add event listener if target = button
 
 */
 //Global Variables
-let displayWindow = '';
+let displayWindow = [];
 
 //Button Functions
 const numberClick = function numberClick(e){
@@ -75,7 +75,7 @@ const numberClick = function numberClick(e){
     }
     else if (displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + toInsert;
+        displayWindow = displayWindow + `"${toInsert}"`
         console.log(toInsert);
     }
     else console.log('Nope')
@@ -87,7 +87,7 @@ const operatorClick = function operatorClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + toInsert;
+        displayWindow = displayWindow + `"${toInsert}"`
         console.log(toInsert);
     }
 }
@@ -107,7 +107,7 @@ const parenthesisButtonClick = function parenthesisButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + toInsert;
+        displayWindow = displayWindow + `"${toInsert}"`
         console.log(toInsert);
     }
 }
@@ -122,14 +122,15 @@ const backspaceButtonClick = function backspaceButtonClick(e){
 }
 
  const signChangeButtonClick = function signChangeButtonClick(e){
+    let originalDisplayWindow = displayWindow;
+    
     if(e.target.classList != 'signChangeButton'){
         return
     }
-    else if(displayWindow.noSuchProperty === undefined){
-        let toInsert = e.target.innerText;
-        displayWindow = displayWindow + toInsert;
-        console.log(toInsert);
+    else{
+        // 
     }
+    
     /*Pseudo for sign change
     Delete the above else if
     else{
@@ -161,7 +162,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + toInsert;
+        displayWindow = displayWindow + `"${toInsert}"`
         console.log(toInsert);
     }
  }
