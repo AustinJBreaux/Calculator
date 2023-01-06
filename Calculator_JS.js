@@ -70,26 +70,23 @@ let displayWindow = [];
 
 //Button Functions
 const numberClick = function numberClick(e){
-    console.log(displayWindow[displayWindow.length -1]);
     if(e.target.classList != 'numberButton'){
         return
     }
-    
-    /*
-    else if(displayWindow[displayWindow.length-1] = Number){
-        let lastChar = displayWindow[displayWindow.length -1];
-        regExp = /"/;
-        newLastChar = lastChar.split(regExp);
-        console.log(newLastChar);
-        //let toInsert = e.target.innerText;
-        //displayWindow = displayWindow + 
-    }
-    */
-    else if (displayWindow.noSuchProperty === undefined){
+    else if (displayWindow === undefined || displayWindow.length == 0){
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + `"${toInsert}`
         console.log(toInsert);
     }
+    else if(displayWindow[displayWindow.length-1] = Number){
+        let newNumber = e.target.innerText;
+        let prevNumber = displayWindow[displayWindow.length -1];
+        console.log(prevNumber)
+        let toInsert = `${prevNumber}${newNumber}"`;
+        displayWindow = displayWindow + toInsert;
+        console.log(toInsert);
+    }
+    
     else console.log('Nope')
 }
 
