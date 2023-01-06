@@ -74,6 +74,7 @@ const numberClick = function numberClick(e){
     if(e.target.classList != 'numberButton'){
         return
     }
+    
     /*
     else if(displayWindow[displayWindow.length-1] = Number){
         let lastChar = displayWindow[displayWindow.length -1];
@@ -86,7 +87,7 @@ const numberClick = function numberClick(e){
     */
     else if (displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `${toInsert}"`
+        displayWindow = displayWindow + `"${toInsert}`
         console.log(toInsert);
     }
     else console.log('Nope')
@@ -98,7 +99,7 @@ const operatorClick = function operatorClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `${toInsert}"`
+        displayWindow = displayWindow + `"${toInsert}`
         console.log(toInsert);
     }
 }
@@ -118,7 +119,7 @@ const parenthesisButtonClick = function parenthesisButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `${toInsert}"`
+        displayWindow = displayWindow + `"${toInsert}`
         console.log(toInsert);
     }
 }
