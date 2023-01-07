@@ -171,8 +171,9 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         //Insert eval code here
-        
-        console.log(displayWindow.replace(/ e /g, ''));
+        let newDisplayWindow = '';
+        newDisplayWindow = displayWindow.replace(/e/g, '');
+        console.log(newDisplayWindow);
     }
  }
 
