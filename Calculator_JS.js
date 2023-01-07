@@ -52,7 +52,6 @@ Pseudocode:
 //Global Variables
 let displayWindow = '';
 let numberRegExp = [0-9];
-let placeHolderRegExp = [/ e /g];
 
 //Button Functions
 const numberClick = function numberClick(e){
