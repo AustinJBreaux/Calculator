@@ -24,22 +24,6 @@ Create all calculator operations:
 
 Pseudocode:
 
-Add event listener if target = button 
-        let firstNumber = Button string
-        displayWindow = displayWindow + firstNumber + ' '
-    if displayWindow contains +-*%
-        let secondNumber = button string
-        displayWindow = displayWindow + secondNumber + ' '
-    else return
-
-
-(clear)
-    addEventListener 
-        let displayWindow = ''
-        let firstNumber = ''
-        let operator = ''
-        let secondNumber = ''
-
 
 (=)
     addEventListener 
@@ -68,7 +52,7 @@ Add event listener if target = button
 //Global Variables
 let displayWindow = '';
 let numberRegExp = [0-9];
-let placeHolderRegExp = [/ e /];
+let placeHolderRegExp = [/ e /g];
 
 //Button Functions
 const numberClick = function numberClick(e){
@@ -77,7 +61,7 @@ const numberClick = function numberClick(e){
     }
     else if (displayWindow === undefined || displayWindow.length == 0){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `e${toInsert}`
+        displayWindow = displayWindow + `e${toInsert}`;
         console.log(toInsert);
     }
     
@@ -176,7 +160,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `~${toInsert}"`
+        displayWindow = displayWindow + `e${toInsert}"`
         console.log(toInsert);
     }
  }
@@ -187,8 +171,8 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         //Insert eval code here
-        let newDisplayWindow = displayWindow.replace(/placeHolderRegExp/g, '');
-        console.log(newDisplayWindow);
+        
+        console.log(displayWindow.replace(/ e /g, ''));
     }
  }
 
