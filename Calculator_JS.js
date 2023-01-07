@@ -66,7 +66,9 @@ Add event listener if target = button
 
 */
 //Global Variables
-let displayWindow = [];
+let displayWindow = '';
+let numberRegExp = [0-9];
+let placeHolderRegExp = [/ e /];
 
 //Button Functions
 const numberClick = function numberClick(e){
@@ -75,15 +77,13 @@ const numberClick = function numberClick(e){
     }
     else if (displayWindow === undefined || displayWindow.length == 0){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `"${toInsert}`
+        displayWindow = displayWindow + `e${toInsert}`
         console.log(toInsert);
     }
-    else if(displayWindow[displayWindow.length-1] = Number){
-        let newNumber = e.target.innerText;
-        let prevNumber = displayWindow[displayWindow.length -1];
-        console.log(prevNumber)
-        let toInsert = `${prevNumber}${newNumber}"`;
-        displayWindow = displayWindow + toInsert;
+    
+    else if(displayWindow[displayWindow.length-1] = numberRegExp){
+        let toInsert = e.target.innerText;
+        displayWindow = displayWindow + `e${toInsert}`;
         console.log(toInsert);
     }
     
@@ -96,7 +96,7 @@ const operatorClick = function operatorClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `"${toInsert}`
+        displayWindow = displayWindow + `e${toInsert}`
         console.log(toInsert);
     }
 }
@@ -116,7 +116,7 @@ const parenthesisButtonClick = function parenthesisButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `"${toInsert}`
+        displayWindow = displayWindow + `e${toInsert}`
         console.log(toInsert);
     }
 }
@@ -176,7 +176,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `"${toInsert}"`
+        displayWindow = displayWindow + `~${toInsert}"`
         console.log(toInsert);
     }
  }
@@ -186,7 +186,9 @@ const backspaceButtonClick = function backspaceButtonClick(e){
         return
     }
     else if(displayWindow.noSuchProperty === undefined){
-        console.log(displayWindow);
+        //Insert eval code here
+        let newDisplayWindow = displayWindow.replace(/placeHolderRegExp/g, '');
+        console.log(newDisplayWindow);
     }
  }
 
