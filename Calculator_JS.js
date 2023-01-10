@@ -149,7 +149,9 @@ const backspaceButtonClick = function backspaceButtonClick(e){
         return
     }
     else if(displayWindow != undefined || ''){
-        console.log(displayWindow);
+        let newDisplayWindow = '';
+        newDisplayWindow = displayWindow.replace(/e/g, '');
+        console.log(newDisplayWindow);
     }
 }
 
@@ -163,18 +165,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
         console.log(toInsert);
     }
  }
- //temp
- const logDisplayWindow = function logDisplayWindow(e){
-    if(e.target.classList != "displayWindowButton"){
-        return
-    }
-    else if(displayWindow.noSuchProperty === undefined){
-        //Insert eval code here
-        let newDisplayWindow = '';
-        newDisplayWindow = displayWindow.replace(/e/g, '');
-        console.log(newDisplayWindow);
-    }
- }
+
 
 //Event Listeners
 document.addEventListener("click", numberClick);
@@ -185,5 +176,3 @@ document.addEventListener("click", backspaceButtonClick);
 document.addEventListener("click", signChangeButtonClick);
 document.addEventListener("click", decimalButtonClick);
 document.addEventListener("click", enterButtonClick);
-//temp
-document.addEventListener("click", logDisplayWindow)
