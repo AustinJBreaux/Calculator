@@ -93,8 +93,19 @@ const clearButtonClick = function clearButtonClick(e){
     }
 }
 
-const parenthesisButtonClick = function parenthesisButtonClick(e){
-    if(e.target.classList != 'parenthesisButton'){
+const openParenthesisButtonClick = function parenthesisButtonClick(e){
+    if(e.target.classList != 'openParenthesisButton'){
+        return
+    }
+    else if(displayWindow.noSuchProperty === undefined){
+        let toInsert = e.target.innerText;
+        displayWindow = displayWindow + `e${toInsert}`
+        console.log(toInsert);
+    }
+}
+
+const closedParenthesisButtonClick = function parenthesisButtonClick(e){
+    if(e.target.classList != 'closedParenthesisButton'){
         return
     }
     else if(displayWindow.noSuchProperty === undefined){
@@ -185,7 +196,8 @@ const backspaceButtonClick = function backspaceButtonClick(e){
 document.addEventListener("click", numberClick);
 document.addEventListener("click", operatorClick);
 document.addEventListener("click", clearButtonClick);
-document.addEventListener("click", parenthesisButtonClick);
+document.addEventListener("click", openParenthesisButtonClick);
+document.addEventListener("click", closedParenthesisButtonClick);
 document.addEventListener("click", backspaceButtonClick);
 document.addEventListener("click", signChangeButtonClick);
 document.addEventListener("click", decimalButtonClick);
