@@ -1,54 +1,3 @@
-/*
-Notes:
-Create all calculator operations:
-    
-    Operate - Takes the first number, and interacts with the operator 
-    and the second number
-        Add
-        Subtract
-        Multiple
-        Divide
-    Clear - Clear all data stored
-    Decimals (Round to the 10th place, and only allow one per number)
-    Equals
-    Positive/negative integers
-    Storage of the display value for the operate button
-    users should be able to string operators (like 5 + 4 + 3 etc)
-    First number should interact directly with the second, no order of operations 
-        bullshit (So 5 + 5 - 2 * 3 = 24)
-    If an operator is called without a second number, delete the operator
-        and display the first number
-        Snarky message if someone tries to divide by 0
-    Toggle button for allowing keyboard controls
-    Backspace button
-
-Pseudocode:
-
-
-(=)
-    addEventListener 
-        splice every ' '
-        parseInt or regex number/operator on splices
-        result = firstNumber operator secondNumber
-        displayWindow = result
-        if operator = % and secondNumber = 0
-            zeroErrorCounter ++
-            if zeroErrorCounter > 1 cheekyZeroMessage
-            cheekyZeroMessage
-                pick random number between 1-10, each causes a different message
-                ex. "Instructions unclear, universe accidentally destroyed"
-        firstNumber operator secondNumber = answer
-        Math.floor(answer)
-        displayWindow = answer
-
-
-(.)
-    addEventListener
-    if firstNumber exists,
-        decimalNumber = ''
-        firstNumber = ${firstNumber}+'.'+'decimalNumber
-
-*/
 //Global Variables
 let displayWindow = '';
 let numberRegExp = [0-9];
@@ -124,7 +73,7 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     }
 }
 
- const signChangeButtonClick = function signChangeButtonClick(e){
+const signChangeButtonClick = function signChangeButtonClick(e){
     if(e.target.classList != 'signChangeButton'){
         return
     }
@@ -132,6 +81,17 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     else{
         console.log('*(-1)');
         displayWindow = displayWindow + `e*(-1)`;
+    }
+ }
+
+const decimalButtonClick = function decimalButtonClick(e){
+    if(e.target.classList != 'decimalButton'){
+        return
+    }
+    else if(displayWindow.noSuchProperty === undefined){
+        let toInsert = e.target.innerText;
+        displayWindow = displayWindow + `e${toInsert}"`
+        console.log(toInsert);
     }
  }
 
@@ -179,18 +139,6 @@ const backspaceButtonClick = function backspaceButtonClick(e){
         */
     }
 }
-
- const decimalButtonClick = function decimalButtonClick(e){
-    if(e.target.classList != 'decimalButton'){
-        return
-    }
-    else if(displayWindow.noSuchProperty === undefined){
-        let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `e${toInsert}"`
-        console.log(toInsert);
-    }
- }
-
 
 //Event Listeners
 document.addEventListener("click", numberClick);
