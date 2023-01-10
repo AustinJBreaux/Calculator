@@ -114,31 +114,14 @@ const backspaceButtonClick = function backspaceButtonClick(e){
 }
 
  const signChangeButtonClick = function signChangeButtonClick(e){
-    let originalDisplayWindow = displayWindow;
-    
     if(e.target.classList != 'signChangeButton'){
         return
     }
-    /* Replace after "7""7" bug is fixed
-    else if (displayWindow[displayWindow.length-1] = Number){
-        console.log("Success")
-    }
-    else{
-        console.log("Fail")
-    }
-    */
     
-    /*Pseudo for sign change
-    Delete the above else if
     else{
-        splice displayWindow every operator
-        add to array
-            if lastChild = integer
-                lastchild = lastchild * -1
-                combine array to string
-            else log error "Sign change button must be used on an integer"
+        console.log('*(-1)');
+        displayWindow = displayWindow + `e*(-1)`;
     }
-    */
  }
 
  const enterButtonClick = function enterButtonClick(e){
