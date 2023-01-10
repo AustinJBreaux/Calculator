@@ -135,6 +135,37 @@ const backspaceButtonClick = function backspaceButtonClick(e){
         let newDisplayWindow = '';
         newDisplayWindow = displayWindow.replace(/e/g, '');
         console.log(newDisplayWindow);
+        /*
+        Separate the displaywindow string into multiple strings in an array
+            based on the placeholder (e)
+        Do below until array.length = 1
+        if 0 position != number log error
+        if 0 = number
+            iterate
+                if counter = (
+                    find ), combine all between to ( string
+                    if ) dne
+                        log error
+            iterate
+                remove e placeholder
+            iterate
+                if 0 && 1 = Number
+                    combine
+            iterate
+                if counter = Number && counter+1 = decimal && counter+2 = NaN
+                    log error
+                else if counter = Number && counter+1 = decimal && counter+2 = Number
+                    combine 
+            iterate
+                if counter = Number && counter+1 = *(-1)
+                    Multiply counter by -1, remove *(-1), and replace coutner with 
+                        sign changed number
+            iterate
+                if 0 = Number && 1 = operator && 2 = NaN
+                    log error
+                else if 0 = Number && 1 = operator && 2 = Number
+                    combine 0+1+2
+        */
     }
 }
 
