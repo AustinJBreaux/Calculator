@@ -103,12 +103,11 @@ const decimalButtonClick = function decimalButtonClick(e){
         return
     }
     else if(displayWindow != undefined || ''){
-        let newDisplayWindow = '';
-        newDisplayWindow = displayWindow.replace(/e/g, '');
-        console.log(newDisplayWindow);
+        newDisplayWindow = displayWindow.split('e');
+        newDisplayWindow.forEach(removeSpaces());
+            
         /*
-        Separate the displaywindow string into multiple strings in an array
-            based on the placeholder (e)
+        
         Do below until array.length = 1
         if 0 position != number log error
         if 0 = number
@@ -137,6 +136,8 @@ const decimalButtonClick = function decimalButtonClick(e){
                 else if 0 = Number && 1 = operator && 2 = Number
                     combine 0+1+2
         */
+       //let displayWindow = newDisplayWindow;
+        console.log(newDisplayWindow);
     }
 }
 
