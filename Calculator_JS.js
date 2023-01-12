@@ -108,7 +108,21 @@ const decimalButtonClick = function decimalButtonClick(e){
             
         /*
         
-        Do below until array.length = 1
+        Use a while/switch loop for the below
+        New plan: For each data management activity, only interact with that
+            activity- aka, if you're trying to merge numbers, skip everything
+            that isn't two numbers, then keep iterating thrpugh each action
+        Actions:
+            Remove placeholder
+            Combine numbers
+            Decimal
+            Sign-change
+            Errors
+                Two operators, dividing by zero, unclosed/open parenthesis,
+                lagging operator, lagging decimal, leading operator
+            Merge parenthesis
+            Evaluate
+
         if 0 position != number log error
         if 0 = number
             iterate
