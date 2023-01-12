@@ -122,33 +122,30 @@ const decimalButtonClick = function decimalButtonClick(e){
                 lagging operator, lagging decimal, leading operator
             Merge parenthesis
             Evaluate
-
-        if 0 position != number log error
-        if 0 = number
-            iterate
-                if counter = (
-                    find ), combine all between to ( string
-                    if ) dne
-                        log error
-            iterate
-                remove e placeholder
-            iterate
-                if 0 && 1 = Number
-                    combine
-            iterate
-                if counter = Number && counter+1 = decimal && counter+2 = NaN
-                    log error
-                else if counter = Number && counter+1 = decimal && counter+2 = Number
-                    combine 
-            iterate
-                if counter = Number && counter+1 = *(-1)
-                    Multiply counter by -1, remove *(-1), and replace coutner with 
-                        sign changed number
-            iterate
-                if 0 = Number && 1 = operator && 2 = NaN
-                    log error
-                else if 0 = Number && 1 = operator && 2 = Number
-                    combine 0+1+2
+        switch (newDisplayWindow){
+            case{ //Errors 
+                if 0 position != number log error
+                leading operator
+                lagging operator
+                lagging decimal
+                consecutive operators
+                unclosed/unopened parenthesis
+                sign change not proceeded by a number
+            }
+            case{
+                combine consecutive numbers
+                combine decimal and numbers
+            }
+            case{
+                multiply previous number by (-1)
+            }
+            case{
+                combine everything between open and closed parenthesis
+            }
+            case{
+                evaluate
+            }
+        }
         */
        //let displayWindow = newDisplayWindow;
         console.log(newDisplayWindow);
