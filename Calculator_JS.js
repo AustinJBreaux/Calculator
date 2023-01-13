@@ -80,7 +80,7 @@ const signChangeButtonClick = function signChangeButtonClick(e){
     
     else{
         console.log('*(-1)');
-        displayWindow = displayWindow + `e*(-1)`;
+        displayWindow = displayWindow + `e*-1`;
     }
  }
 
@@ -113,7 +113,6 @@ const decimalButtonClick = function decimalButtonClick(e){
             activity- aka, if you're trying to merge numbers, skip everything
             that isn't two numbers, then keep iterating thrpugh each action
         Actions:
-            Remove placeholder
             Combine numbers
             Decimal
             Sign-change
@@ -124,20 +123,33 @@ const decimalButtonClick = function decimalButtonClick(e){
             Evaluate
         switch (newDisplayWindow){
             case{ //Errors 
-                if 0 position != number log error
+                if  position != number
                 leading operator
+                    if 1 = operator
                 lagging operator
+                    if -1 = operator
                 lagging decimal
+                    if -1 = decimal
                 consecutive operators
+                    let current = counter
+                    let previous = counter -1
+                    let next = counter + 1
+                    if previous && current are operators, error
+                    if counter and next are operators
                 unclosed/unopened parenthesis
+                    Search for open parenthesis
+                    search for closed parenthesis
+                    if number of open > closed log unclosed
+                    if closed > open log unopened
                 sign change not proceeded by a number
+                    search for *-1, if previous != number log error
             }
             case{
                 combine consecutive numbers
                 combine decimal and numbers
             }
             case{
-                multiply previous number by (-1)
+                multiply previous number by *-1
             }
             case{
                 combine everything between open and closed parenthesis
