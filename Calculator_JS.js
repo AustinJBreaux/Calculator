@@ -1,6 +1,7 @@
 //Global Variables
 let displayWindow = '';
 let numberRegExp = [0-9];
+let operatorRegExp = [/\+-\/\*/]
 
 //Button Functions
 const numberClick = function numberClick(e){
@@ -107,15 +108,19 @@ const decimalButtonClick = function decimalButtonClick(e){
         newDisplayWindow.forEach(removeSpaces());
         originalLength = newDisplayWindow.length
         do {
-            switch(insert_Expression_Here){
-                case 'errorMessages':
-                    //First position != number
-                    //Leading operator
-                    //Lagging operator
-                    //Lagging decimal
-                    //consecutive operators
-                    //Unclosed/unopened parenthesis
-                    //Sign-change not proceeded by number
+            switch(displayWindow){
+                case checkLeadingOperator:
+                    console.log("Error - Leading operator")
+                case checkLaggingOperator:
+                    console.log("Error - Lagging operator")
+                case checkLaggingDecimal:
+                
+                case checkConsecutiveOperators:
+
+                case checkParenthesis:
+
+                case checkSignChange:
+                    
                 case 'combineConsecutiveNumbers':
                     //
                 case 'combineDecimalNumbers':
@@ -129,7 +134,6 @@ const decimalButtonClick = function decimalButtonClick(e){
             }
         }
         while (counter != originalLength);
-
        console.log(newDisplayWindow);
         /*
         
@@ -185,6 +189,14 @@ const decimalButtonClick = function decimalButtonClick(e){
         }
         */
     }
+}
+
+//Data Functions
+const checkLeadingOperator = function leadingOperator(){
+    newDisplayWindow[1] = operatorRegExp;
+}
+const checkLaggingOperator = function checkLaggingOperator(){
+    //
 }
 
 //Event Listeners
