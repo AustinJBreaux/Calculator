@@ -105,7 +105,32 @@ const decimalButtonClick = function decimalButtonClick(e){
     else if(displayWindow != undefined || ''){
         newDisplayWindow = displayWindow.split('e');
         newDisplayWindow.forEach(removeSpaces());
-            
+        originalLength = newDisplayWindow.length
+        do {
+            switch(insert_Expression_Here){
+                case 'errorMessages':
+                    //First position != number
+                    //Leading operator
+                    //Lagging operator
+                    //Lagging decimal
+                    //consecutive operators
+                    //Unclosed/unopened parenthesis
+                    //Sign-change not proceeded by number
+                case 'combineConsecutiveNumbers':
+                    //
+                case 'combineDecimalNumbers':
+                    //
+                case 'signChange':
+                    //
+                case 'mergeBetweenParenthesis':
+                    //
+                case 'finalEvaluations':
+                    //
+            }
+        }
+        while (counter != originalLength);
+
+       console.log(newDisplayWindow);
         /*
         
         Use a while/switch loop for the below
@@ -159,8 +184,6 @@ const decimalButtonClick = function decimalButtonClick(e){
             }
         }
         */
-       //let displayWindow = newDisplayWindow;
-        console.log(newDisplayWindow);
     }
 }
 
