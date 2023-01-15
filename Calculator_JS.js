@@ -110,24 +110,34 @@ const decimalButtonClick = function decimalButtonClick(e){
         do {
             switch(displayWindow){
                 case checkLeadingOperator:
-                    console.log("Error - Leading operator")
+                    console.log("Error - Leading operator");
+                    break
                 case checkLaggingOperator:
-                    console.log("Error - Lagging operator")
+                    console.log("Error - Lagging operator");
+                    break
                 case checkLaggingDecimal:
-                
+                    console.log("Error - Lagging Decimal");
+                    break
                 case checkConsecutiveOperators:
-
+                    console.log("Error - Consecutive Operators");
+                    break
                 case checkParenthesis:
-
+                    //if(#openParenthesis > closedParenthesis){
+                    console.log("Error: Unclosed parenthesis");
+                    //}
+                    //else if(#closedParenthesis > openParenthesis){
+                    console.log("Error: Unopened parenthesis");
+                    //}
+                    break
                 case checkSignChange:
-                    
-                case 'combineConsecutiveNumbers':
+                    console.log("Error: Incorrect sign-change");
+                case combineNumbers:
                     //
-                case 'combineDecimalNumbers':
+                case combineDecimalNumbers:
                     //
-                case 'signChange':
+                case signChange:
                     //
-                case 'mergeBetweenParenthesis':
+                case 'mergeParenthesis':
                     //
                 case 'finalEvaluations':
                     //
@@ -198,7 +208,27 @@ const checkLeadingOperator = function leadingOperator(){
 const checkLaggingOperator = function checkLaggingOperator(){
     //
 }
-
+const checkLaggingDecimal = function checkLaggingDecimal(){
+    //
+}
+const checkConsecutiveOperators = function consecutiveOperators(){
+    //
+}
+const checkParenthesis = function parenthesis(){
+    //
+}
+const checkSignChange = function signChange(){
+    //
+}
+const combineNumbers = function combineNumbers(){
+    //
+}
+const combineDecimalNumbers = function combineDecimalNumbers(){
+    //
+}
+const signChange = function signChange(){
+    //
+}
 //Event Listeners
 document.addEventListener("click", numberClick);
 document.addEventListener("click", operatorClick);
