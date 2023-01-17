@@ -104,15 +104,19 @@ const decimalButtonClick = function decimalButtonClick(e){
         return
     }
     else if(displayWindow != undefined || ''){
-        newDisplayWindow = displayWindow.split('e');
+        let newDisplayWindow = displayWindow.split('e');
+        newDisplayWindow = newDisplayWindow.filter(newDisplayWindow => newDisplayWindow != "");
         //newDisplayWindow.forEach(removeSpaces());
-        originalLength = newDisplayWindow.length
+        for(let counter = 0; counter < 10; counter++){
+            if(checkLeadingOperator){
+            console.log("Error - Leading operator");
+            break
+            }
+            //else if(){}
+        }
+         /*
         do {
-            switch(displayWindow){
-                case checkLeadingOperator:
-                    console.log("Error - Leading operator");
-                    break
-                /*
+            switch(newDisplayWindow){
                 case checkLaggingOperator:
                     console.log("Error - Lagging operator");
                     break
@@ -137,70 +141,16 @@ const decimalButtonClick = function decimalButtonClick(e){
             combineDecimalNumbers(newDisplayWindow);
             signChange(newDisplayWindow);
             mergeParenthesis(newDisplayWindow);
-            finalEvaluations(newDisplayWindow);
+            finalEvaluations(newDisplayWindow); Use reduce() for this
             */
-        }//temp, delete after debugging
-        while (counter != originalLength);
-       console.log(newDisplayWindow);
-        /*
-        
-        Use a while/switch loop for the below
-        New plan: For each data management activity, only interact with that
-            activity- aka, if you're trying to merge numbers, skip everything
-            that isn't two numbers, then keep iterating thrpugh each action
-        Actions:
-            Combine numbers
-            Decimal
-            Sign-change
-            Errors
-                Two operators, dividing by zero, unclosed/open parenthesis,
-                lagging operator, lagging decimal, leading operator
-            Merge parenthesis
-            Evaluate
-        switch (newDisplayWindow){
-            case{ //Errors 
-                if  position != number
-                leading operator
-                    if 1 = operator
-                lagging operator
-                    if -1 = operator
-                lagging decimal
-                    if -1 = decimal
-                consecutive operators
-                    let current = counter
-                    let previous = counter -1
-                    let next = counter + 1
-                    if previous && current are operators, error
-                    if counter and next are operators
-                unclosed/unopened parenthesis
-                    Search for open parenthesis
-                    search for closed parenthesis
-                    if number of open > closed log unclosed
-                    if closed > open log unopened
-                sign change not proceeded by a number
-                    search for *-1, if previous != number log error
-            }
-            case{
-                combine consecutive numbers
-                combine decimal and numbers
-            }
-            case{
-                multiply previous number by *-1
-            }
-            case{
-                combine everything between open and closed parenthesis
-            }
-            case{
-                evaluate
-            }
-        }
-        */
+    console.log(newDisplayWindow);
     }
-}
+ }
 
 //Data Functions
 const checkLeadingOperator = function leadingOperator(){
-    newDisplayWindow[1] = operatorRegExp;
+    if (newDisplayWindow[1] = operatorRegExp);
+    return true
 }
 const checkLaggingOperator = function checkLaggingOperator(){
     //
