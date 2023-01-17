@@ -112,6 +112,7 @@ const decimalButtonClick = function decimalButtonClick(e){
                 case checkLeadingOperator:
                     console.log("Error - Leading operator");
                     break
+                /*
                 case checkLaggingOperator:
                     console.log("Error - Lagging operator");
                     break
@@ -137,7 +138,8 @@ const decimalButtonClick = function decimalButtonClick(e){
             signChange(newDisplayWindow);
             mergeParenthesis(newDisplayWindow);
             finalEvaluations(newDisplayWindow);
-
+            */
+        }//temp, delete after debugging
         while (counter != originalLength);
        console.log(newDisplayWindow);
         /*
