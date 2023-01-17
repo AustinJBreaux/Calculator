@@ -105,7 +105,7 @@ const decimalButtonClick = function decimalButtonClick(e){
     }
     else if(displayWindow != undefined || ''){
         newDisplayWindow = displayWindow.split('e');
-        newDisplayWindow.forEach(removeSpaces());
+        //newDisplayWindow.forEach(removeSpaces());
         originalLength = newDisplayWindow.length
         do {
             switch(displayWindow){
@@ -131,18 +131,13 @@ const decimalButtonClick = function decimalButtonClick(e){
                     break
                 case checkSignChange:
                     console.log("Error: Incorrect sign-change");
-                case combineNumbers:
-                    //
-                case combineDecimalNumbers:
-                    //
-                case signChange:
-                    //
-                case 'mergeParenthesis':
-                    //
-                case 'finalEvaluations':
-                    //
             }
-        }
+            combineNumbers(newDisplayWindow);
+            combineDecimalNumbers(newDisplayWindow);
+            signChange(newDisplayWindow);
+            mergeParenthesis(newDisplayWindow);
+            finalEvaluations(newDisplayWindow);
+
         while (counter != originalLength);
        console.log(newDisplayWindow);
         /*
@@ -229,6 +224,13 @@ const combineDecimalNumbers = function combineDecimalNumbers(){
 const signChange = function signChange(){
     //
 }
+const mergeParenthesis = function mergeParenthesis(){
+    //
+}
+const finalEvaluations = function finalEvaluations(){
+    //
+}
+
 //Event Listeners
 document.addEventListener("click", numberClick);
 document.addEventListener("click", operatorClick);
