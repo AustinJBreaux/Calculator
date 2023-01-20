@@ -106,36 +106,27 @@ const decimalButtonClick = function decimalButtonClick(e){
     else if(displayWindow != undefined || ''){
         let newDisplayWindow = displayWindow.split('e');
         newDisplayWindow = newDisplayWindow.filter(newDisplayWindow => newDisplayWindow != "");
-        //newDisplayWindow.forEach(removeSpaces());
         for(let counter = 0; counter < 10; counter++){
             if(checkLeadingOperator){
-            console.log("Error - Leading operator");
-            break
+                console.log("Error - Leading operator");
             }
-            //else if(){}
+            else if(checkLaggingOperator){
+                console.log("Error - Lagging operator");
+            }
+            else if(checkLaggingDecimal){
+                console.log("Error - Lagging Decimal");
+            }
+            else if(checkConsecutiveOperators){
+                console.log("Error - Consecutive Operators");
+            }
+            else if(checkParenthesis){
+                console.log(`Error - Incorrect use of ${incorrectParenthesis} parenthesis`);
+            }
+            else if(checkSignChange){
+                console.log("Error: Incorrect sign-change usage");
+            }
         }
          /*
-        do {
-            switch(newDisplayWindow){
-                case checkLaggingOperator:
-                    console.log("Error - Lagging operator");
-                    break
-                case checkLaggingDecimal:
-                    console.log("Error - Lagging Decimal");
-                    break
-                case checkConsecutiveOperators:
-                    console.log("Error - Consecutive Operators");
-                    break
-                case checkParenthesis:
-                    //if(#openParenthesis > closedParenthesis){
-                    console.log("Error: Unclosed parenthesis");
-                    //}
-                    //else if(#closedParenthesis > openParenthesis){
-                    console.log("Error: Unopened parenthesis");
-                    //}
-                    break
-                case checkSignChange:
-                    console.log("Error: Incorrect sign-change");
             }
             combineNumbers(newDisplayWindow);
             combineDecimalNumbers(newDisplayWindow);
@@ -149,11 +140,12 @@ const decimalButtonClick = function decimalButtonClick(e){
 
 //Data Functions
 const checkLeadingOperator = function leadingOperator(){
-    if (newDisplayWindow[1] = operatorRegExp);
-    return true
+    if (newDisplayWindow[1] === operatorRegExp);
+        return true
 }
 const checkLaggingOperator = function checkLaggingOperator(){
-    //
+    if(newDisplayWindow[newDisplayWindow.length -1] === operatorRegExp);
+        return true
 }
 const checkLaggingDecimal = function checkLaggingDecimal(){
     //
@@ -162,10 +154,17 @@ const checkConsecutiveOperators = function consecutiveOperators(){
     //
 }
 const checkParenthesis = function parenthesis(){
-    //
+    //if(#openParenthesis > closedParenthesis){
+        //let incorrectParenthesis = closed;
+        //return true
+        //}
+    //else if(#closedParenthesis > openParenthesis){
+        //let incorrectParenthesis = open;
+        //return true
+        //}
 }
 const checkSignChange = function signChange(){
-    //
+    //for each find signchange, if true and previous dne number, error. If false return
 }
 const combineNumbers = function combineNumbers(){
     //
