@@ -106,8 +106,11 @@ const decimalButtonClick = function decimalButtonClick(e){
     else if(displayWindow != undefined || ''){
         let newDisplayWindow = displayWindow.split('e');
         newDisplayWindow = newDisplayWindow.filter(newDisplayWindow => newDisplayWindow != "");
-        for(let counter = 0; counter < 10; counter++){
-            if(checkLeadingOperator){
+        //Error Functions
+        checkLeadingOperator(newDisplayWindow);
+        checkLaggingOperator;
+        /*
+            if(newDisplayWindow[1] == operatorRegExp){
                 console.log("Error - Leading operator");
             }
             else if(checkLaggingOperator){
@@ -125,8 +128,10 @@ const decimalButtonClick = function decimalButtonClick(e){
             else if(checkSignChange){
                 console.log("Error: Incorrect sign-change usage");
             }
-        }
-         /*
+            */
+        //Data Functions
+        for(let counter = 0; counter < 10; counter++){//Replace with do while length != 1
+            /*
             }
             combineNumbers(newDisplayWindow);
             combineDecimalNumbers(newDisplayWindow);
@@ -134,18 +139,28 @@ const decimalButtonClick = function decimalButtonClick(e){
             mergeParenthesis(newDisplayWindow);
             finalEvaluations(newDisplayWindow); Use reduce() for this
             */
+        }
+         
     console.log(newDisplayWindow);
     }
  }
 
 //Data Functions
-const checkLeadingOperator = function leadingOperator(){
-    if (newDisplayWindow[1] === operatorRegExp);
-        return true
+const checkLeadingOperator = function leadingOperator(newDisplayWindow){
+    let test = (newDisplayWindow.slice(0,1).tostring());
+    if (operatorRegExp.test(test)){
+        console.log("Error: Leading Operator");
+        return
+    }
+    else return   
 }
-const checkLaggingOperator = function checkLaggingOperator(){
-    if(newDisplayWindow[newDisplayWindow.length -1] === operatorRegExp);
-        return true
+const checkLaggingOperator = function checkLaggingOperator(newDisplayWindow){
+    let test = newDisplayWindow[newDisplayWindow.length-1];
+    if(test.includes(operatorRegExp)){
+        console.log("Error: Lagging Operator");
+        return
+    }
+    else return
 }
 const checkLaggingDecimal = function checkLaggingDecimal(){
     //
