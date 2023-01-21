@@ -147,12 +147,12 @@ const decimalButtonClick = function decimalButtonClick(e){
 
 //Data Functions
 const checkLeadingOperator = function leadingOperator(newDisplayWindow){
-    let test = (newDisplayWindow.slice(0,1).tostring());
-    if (operatorRegExp.test(test)){
+    let test = (newDisplayWindow.slice(0,1)).toString();
+    if (test.includes("+"||"-"||"*"||"/")){
         console.log("Error: Leading Operator");
         return
     }
-    else return   
+    else return
 }
 const checkLaggingOperator = function checkLaggingOperator(newDisplayWindow){
     let test = newDisplayWindow[newDisplayWindow.length-1];
