@@ -91,7 +91,7 @@ const decimalButtonClick = function decimalButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `e${toInsert}"`
+        displayWindow = displayWindow + `e${toInsert}`;
         console.log(toInsert);
     }
  }
@@ -109,13 +109,8 @@ const decimalButtonClick = function decimalButtonClick(e){
         //Error Functions
         checkLeadingOperator(newDisplayWindow);
         checkLaggingOperator(newDisplayWindow);
+        checkLaggingDecimal(newDisplayWindow);
         /*
-            if(newDisplayWindow[1] == operatorRegExp){
-                console.log("Error - Leading operator");
-            }
-            else if(checkLaggingOperator){
-                console.log("Error - Lagging operator");
-            }
             else if(checkLaggingDecimal){
                 console.log("Error - Lagging Decimal");
             }
@@ -184,9 +179,16 @@ const checkLaggingOperator = function checkLaggingOperator(newDisplayWindow){
     }
 }
 
-const checkLaggingDecimal = function checkLaggingDecimal(){
-    //
+const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
+    let testPosition = newDisplayWindow[newDisplayWindow.length-1];
+    testType = "Lagging Decimal";
+    switch(testPosition){
+        case ".":
+            console.log(`Error: ${testType} "${testPosition}"`)
+            break
+    }
 }
+
 const checkConsecutiveOperators = function consecutiveOperators(){
     //
 }
