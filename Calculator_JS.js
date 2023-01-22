@@ -193,14 +193,17 @@ const checkConsecutiveOperators = function consecutiveOperators(){
     //
 }
 const checkParenthesis = function parenthesis(){
-    //if(#openParenthesis > closedParenthesis){
+    let numberOpenParenthesis = "";//Search number of open
+    let numberClosedParenthesis = "";//Search number of closed
+    //if(numberOpenParenthesis > closedParenthesis){
         //let incorrectParenthesis = closed;
         //return true
         //}
-    //else if(#closedParenthesis > openParenthesis){
+    //else if(numberClosedParenthesis > openParenthesis){
         //let incorrectParenthesis = open;
         //return true
         //}
+    //console.log(`Error: Incorrect ${incorrectParenthesis} placement`);
 }
 const checkSignChange = function signChange(){
     //for each find signchange, if true and previous dne number, error. If false return
