@@ -108,7 +108,7 @@ const decimalButtonClick = function decimalButtonClick(e){
         newDisplayWindow = newDisplayWindow.filter(newDisplayWindow => newDisplayWindow != "");
         //Error Functions
         checkLeadingOperator(newDisplayWindow);
-        checkLaggingOperator;
+        checkLaggingOperator(newDisplayWindow);
         /*
             if(newDisplayWindow[1] == operatorRegExp){
                 console.log("Error - Leading operator");
@@ -148,8 +148,8 @@ const decimalButtonClick = function decimalButtonClick(e){
 //Data Functions
 const checkLeadingOperator = function leadingOperator(newDisplayWindow){
     let testPosition = (newDisplayWindow.slice(0,1)).toString();
-    let testType = "Leading Operator"
-    switch(test){
+    let testType = "Leading Operator";
+    switch(testPosition){
         case "+":
             console.log(`Error: ${testType} "${testPosition}"`)
             break
@@ -166,13 +166,24 @@ const checkLeadingOperator = function leadingOperator(newDisplayWindow){
 }
 
 const checkLaggingOperator = function checkLaggingOperator(newDisplayWindow){
-    let test = newDisplayWindow[newDisplayWindow.length-1];
-    if(test.includes(operatorRegExp)){
-        console.log("Error: Lagging Operator");
-        return
+    let testPosition = newDisplayWindow[newDisplayWindow.length-1];
+    let testType = "Lagging Operator";
+    switch(testPosition){
+        case "+":
+            console.log(`Error: ${testType} "${testPosition}"`)
+            break
+        case "-":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
+        case "*":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
+        case "/":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
     }
-    else return
 }
+
 const checkLaggingDecimal = function checkLaggingDecimal(){
     //
 }
