@@ -147,19 +147,20 @@ const decimalButtonClick = function decimalButtonClick(e){
 
 //Data Functions
 const checkLeadingOperator = function leadingOperator(newDisplayWindow){
-    let test = (newDisplayWindow.slice(0,1)).toString();
+    let testPosition = (newDisplayWindow.slice(0,1)).toString();
+    let testType = "Leading Operator"
     switch(test){
         case "+":
-            console.log(`Error: Leading Operator "${test}"`)
+            console.log(`Error: ${testType} "${testPosition}"`)
             break
         case "-":
-            console.log(`Error: Leading Operator "${test}"`)
+            console.log(`Error: Leading Operator "${testPosition}"`)
             break
         case "*":
-            console.log(`Error: Leading Operator "${test}"`)
+            console.log(`Error: Leading Operator "${testPosition}"`)
             break
         case "/":
-            console.log(`Error: Leading Operator "${test}"`)
+            console.log(`Error: Leading Operator "${testPosition}"`)
             break
     }
 }
