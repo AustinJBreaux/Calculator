@@ -213,7 +213,15 @@ const checkParenthesis = function parenthesis(newDisplayWindow){
     }
 }
 const checkSignChange = function signChange(){
-    //for each find signchange, if true and previous dne number, error. If false return
+    //for each find signchange, if next dne number, error. If false return
+    newDisplayWindow.forEach(element, index => {
+        let next = index+1;
+        if(element == "-/+"){
+            if(next != numberRegExp){
+                console.log("Error - Incorrect sign-change button usage. Must be proceeded by a number")
+            }
+        }
+    });
 }
 const combineNumbers = function combineNumbers(){
     //
