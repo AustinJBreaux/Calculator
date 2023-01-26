@@ -110,10 +110,8 @@ const decimalButtonClick = function decimalButtonClick(e){
         checkLeadingOperator(newDisplayWindow);
         checkLaggingOperator(newDisplayWindow);
         checkLaggingDecimal(newDisplayWindow);
+        checkParenthesis(newDisplayWindow);
         /*
-            else if(checkLaggingDecimal){
-                console.log("Error - Lagging Decimal");
-            }
             else if(checkConsecutiveOperators){
                 console.log("Error - Consecutive Operators");
             }
@@ -192,18 +190,27 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
 const checkConsecutiveOperators = function consecutiveOperators(){
     //
 }
-const checkParenthesis = function parenthesis(){
-    let numberOpenParenthesis = "";//Search number of open
-    let numberClosedParenthesis = "";//Search number of closed
-    //if(numberOpenParenthesis > closedParenthesis){
-        //let incorrectParenthesis = closed;
-        //return true
-        //}
-    //else if(numberClosedParenthesis > openParenthesis){
-        //let incorrectParenthesis = open;
-        //return true
-        //}
-    //console.log(`Error: Incorrect ${incorrectParenthesis} placement`);
+const checkParenthesis = function parenthesis(newDisplayWindow){
+    let numberOpenParenthesis = 0;
+    let numberClosedParenthesis = 0;
+    newDisplayWindow.forEach(element => {
+        if(element == "("){
+            numberOpenParenthesis++;
+        }
+        else return
+    });
+    newDisplayWindow.forEach(element => {
+        if(element == ")"){
+            numberClosedParenthesis++;
+        }
+        else return
+    })
+    if(numberOpenParenthesis > numberClosedParenthesis){
+        console.log(`Error: Incorrect ( placement (Unopened parenthesis)`);
+    }
+    else if(numberClosedParenthesis > numberOpenParenthesis){
+        console.log(`Error: Incorrect ) placement (Unclosed parenthesis)`);
+    }
 }
 const checkSignChange = function signChange(){
     //for each find signchange, if true and previous dne number, error. If false return
