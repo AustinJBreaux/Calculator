@@ -112,15 +112,18 @@ const decimalButtonClick = function decimalButtonClick(e){
         checkLaggingDecimal(newDisplayWindow);
         checkParenthesis(newDisplayWindow);
         /*
-            else if(checkConsecutiveOperators){
+            checkConsecutiveOperators(newDisplayWindow);
                 console.log("Error - Consecutive Operators");
-            }
-            else if(checkParenthesis){
+        
+            checkParenthesis(newDisplayWindow);
                 console.log(`Error - Incorrect use of ${incorrectParenthesis} parenthesis`);
-            }
-            else if(checkSignChange){
+            
+            checkForLaggingParenthesisNumber(newDisplayWindow);
+                console.log("Error: The last character inside a pair or parenthesis must be a number");
+
+            checkSignChange(newDisplayWindow);
                 console.log("Error: Incorrect sign-change usage");
-            }
+
             */
         //Data Functions
         for(let counter = 0; counter < 10; counter++){//Replace with do while length != 1
@@ -187,7 +190,7 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
     }
 }
 
-const checkConsecutiveOperators = function consecutiveOperators(){
+const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
     //
 }
 const checkParenthesis = function parenthesis(newDisplayWindow){
@@ -212,7 +215,10 @@ const checkParenthesis = function parenthesis(newDisplayWindow){
         console.log(`Error: Incorrect ) placement (Unclosed parenthesis)`);
     }
 }
-const checkSignChange = function signChange(){
+const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDisplayWindow){
+    //
+}
+const checkSignChange = function signChange(newDisplayWindow){
     //for each find signchange, if next dne number, error. If false return
     newDisplayWindow.forEach(element, index => {
         let next = index+1;
@@ -223,19 +229,19 @@ const checkSignChange = function signChange(){
         }
     });
 }
-const combineNumbers = function combineNumbers(){
+const combineNumbers = function combineNumbers(newDisplayWindow){
     //
 }
-const combineDecimalNumbers = function combineDecimalNumbers(){
+const combineDecimalNumbers = function combineDecimalNumbers(newDisplayWindow){
     //
 }
-const signChange = function signChange(){
+const signChange = function signChange(newDisplayWindow){
     //
 }
-const mergeParenthesis = function mergeParenthesis(){
+const mergeParenthesis = function mergeParenthesis(newDisplayWindow){
     //
 }
-const finalEvaluations = function finalEvaluations(){
+const finalEvaluations = function finalEvaluations(newDisplayWindow){
     //
 }
 
