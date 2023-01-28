@@ -222,7 +222,7 @@ const checkSignChange = function signChange(newDisplayWindow){
     //for each find signchange, if next dne number, error. If false return
     newDisplayWindow.forEach(element, index => {
         let next = index+1;
-        if(element == "-/+"){
+        if(element == "*-1"){
             if(next != numberRegExp){
                 console.log("Error - Incorrect sign-change button usage. Must be proceeded by a number")
             }
