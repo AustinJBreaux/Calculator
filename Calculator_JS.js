@@ -1,7 +1,7 @@
 //Global Variables
 let displayWindow = '';
 let numberRegExp = [0-9];
-let operatorRegExp = [/\+-\/\*/]
+let operatorRegExp = [/\+\/\*/]
 
 //Button Functions
 const numberClick = function numberClick(e){
@@ -80,8 +80,8 @@ const signChangeButtonClick = function signChangeButtonClick(e){
     }
     
     else{
-        console.log('*(-1)');
-        displayWindow = displayWindow + `e*-1`;
+        console.log(' -');
+        displayWindow = displayWindow + `e -`;
     }
  }
 
@@ -107,10 +107,8 @@ const decimalButtonClick = function decimalButtonClick(e){
         let newDisplayWindow = displayWindow.split('e');
         newDisplayWindow = newDisplayWindow.filter(newDisplayWindow => newDisplayWindow != "");
         //Error Functions
-        checkLeadingOperator(newDisplayWindow);
-        checkLaggingOperator(newDisplayWindow);
-        checkLaggingDecimal(newDisplayWindow);
-        checkParenthesis(newDisplayWindow);
+        errorFunctions(newDisplayWindow);
+        
         /*
             checkConsecutiveOperators(newDisplayWindow);
                 console.log("Error - Consecutive Operators");
@@ -141,8 +139,14 @@ const decimalButtonClick = function decimalButtonClick(e){
     }
  }
 
-//Data Functions
-const checkLeadingOperator = function leadingOperator(newDisplayWindow){
+ //Error Functions
+ const errorFunctions = function errorFunctions(newDisplayWindow){
+    checkLeadingOperator(newDisplayWindow);
+    checkLaggingOperator(newDisplayWindow);
+    checkLaggingDecimal(newDisplayWindow);
+    checkParenthesis(newDisplayWindow);
+ };
+ const checkLeadingOperator = function leadingOperator(newDisplayWindow){
     let testPosition = (newDisplayWindow.slice(0,1)).toString();
     let testType = "Leading Operator";
     switch(testPosition){
@@ -193,6 +197,7 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
 const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
     //
 }
+
 const checkParenthesis = function parenthesis(newDisplayWindow){
     let numberOpenParenthesis = 0;
     let numberClosedParenthesis = 0;
@@ -219,16 +224,10 @@ const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDi
     //
 }
 const checkSignChange = function signChange(newDisplayWindow){
-    //for each find signchange, if next dne number, error. If false return
-    newDisplayWindow.forEach(element, index => {
-        let next = index+1;
-        if(element == "*-1"){
-            if(next != numberRegExp){
-                console.log("Error - Incorrect sign-change button usage. Must be proceeded by a number")
-            }
-        }
-    });
+    //Find sign change index, and next character
 }
+
+//Data Functions
 const combineNumbers = function combineNumbers(newDisplayWindow){
     //
 }
