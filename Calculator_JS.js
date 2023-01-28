@@ -106,33 +106,9 @@ const decimalButtonClick = function decimalButtonClick(e){
     else if(displayWindow != undefined || ''){
         let newDisplayWindow = displayWindow.split('e');
         newDisplayWindow = newDisplayWindow.filter(newDisplayWindow => newDisplayWindow != "");
-        //Error Functions
         errorFunctions(newDisplayWindow);
-        
-        /*
-            checkConsecutiveOperators(newDisplayWindow);
-                console.log("Error - Consecutive Operators");
-        
-            checkParenthesis(newDisplayWindow);
-                console.log(`Error - Incorrect use of ${incorrectParenthesis} parenthesis`);
-            
-            checkForLaggingParenthesisNumber(newDisplayWindow);
-                console.log("Error: The last character inside a pair or parenthesis must be a number");
-
-            checkSignChange(newDisplayWindow);
-                console.log("Error: Incorrect sign-change usage");
-
-            */
-        //Data Functions
+        dataFunctions(newDisplayWindow);
         for(let counter = 0; counter < 10; counter++){//Replace with do while length != 1
-            /*
-            }
-            combineNumbers(newDisplayWindow);
-            combineDecimalNumbers(newDisplayWindow);
-            signChange(newDisplayWindow);
-            mergeParenthesis(newDisplayWindow);
-            finalEvaluations(newDisplayWindow); Use reduce() for this
-            */
         }
          
     console.log(newDisplayWindow);
@@ -145,6 +121,9 @@ const decimalButtonClick = function decimalButtonClick(e){
     checkLaggingOperator(newDisplayWindow);
     checkLaggingDecimal(newDisplayWindow);
     checkParenthesis(newDisplayWindow);
+    //checkConsecutiveOperators(newDisplayWindow);
+    //checkForLaggingParenthesisNumber(newDisplayWindow);
+    //checkSignChange(newDisplayWindow);
  };
  const checkLeadingOperator = function leadingOperator(newDisplayWindow){
     let testPosition = (newDisplayWindow.slice(0,1)).toString();
@@ -195,7 +174,12 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
 }
 
 const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
-    //
+    //let counter = 0, ++ until counter = nDisWind 
+        //if `newDisWind[${counter}`] = numberRegExp || "-";
+            //if `newDisWind[{counter+1}] = numberREgExp || "-";
+                //log error
+            //else return
+        //else return
 }
 
 const checkParenthesis = function parenthesis(newDisplayWindow){
@@ -220,14 +204,24 @@ const checkParenthesis = function parenthesis(newDisplayWindow){
         console.log(`Error: Incorrect ) placement (Unclosed parenthesis)`);
     }
 }
-const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDisplayWindow){
-    //
-}
+
 const checkSignChange = function signChange(newDisplayWindow){
     //Find sign change index, and next character
+        //if next != number, error
+        //else
+            //
 }
 
 //Data Functions
+const dataFunctions = function dataFunctions(newDisplayWindow){
+    combineNumbers(newDisplayWindow);
+    combineDecimalNumbers(newDisplayWindow);
+    signChange(newDisplayWindow);
+    signChange(newDisplayWindow);
+    mergeParenthesis(newDisplayWindow);
+    finalEvaluations(newDisplayWindow);
+}
+
 const combineNumbers = function combineNumbers(newDisplayWindow){
     //
 }
