@@ -209,6 +209,11 @@ const checkParenthesis = function parenthesis(newDisplayWindow){
     }
 }
 
+const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDisplayWindow){
+    //for counter, if == ")"
+        //if newDisplayWindow[`${counter-1}`] == numberRegExp
+            //console.log("Error - The last character inside of a parenthesis must be a number")
+}
 const checkSignChange = function signChange(newDisplayWindow){
     //Find sign change index, and next character
         //if next != number, error
