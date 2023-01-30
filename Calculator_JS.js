@@ -175,8 +175,8 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
 
 const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
     for(let counter = 0; counter < newDisplayWindow.length; counter++){
-        if(newDisplayWindow[`${counter}`] = operatorRegExp || "-"){
-            if(newDisplayWindow[`${counter+1}`] = operatorRegExp || "-"){
+        if(newDisplayWindow[`${counter}`] == operatorRegExp || "-"){
+            if(newDisplayWindow[`${counter+1}`] == operatorRegExp || "-"){
                 console.log("Error - Consecutive operators");
                 return
             }
