@@ -121,7 +121,7 @@ const decimalButtonClick = function decimalButtonClick(e){
     checkLaggingOperator(newDisplayWindow);
     checkLaggingDecimal(newDisplayWindow);
     checkParenthesis(newDisplayWindow);
-    //checkConsecutiveOperators(newDisplayWindow);
+    checkConsecutiveOperators(newDisplayWindow);
     //checkForLaggingParenthesisNumber(newDisplayWindow);
     //checkSignChange(newDisplayWindow);
  };
@@ -174,12 +174,16 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
 }
 
 const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
-    //let counter = 0, ++ until counter = nDisWind 
-        //if `newDisWind[${counter}`] = numberRegExp || "-";
-            //if `newDisWind[{counter+1}] = numberREgExp || "-";
-                //log error
-            //else return
-        //else return
+    for(let counter = 0; counter < newDisplayWindow.length; counter++){
+        if(newDisplayWindow[`${counter}`] = operatorRegExp || "-"){
+            if(newDisplayWindow[`${counter+1}`] = operatorRegExp || "-"){
+                console.log("Error - Consecutive operators");
+                return
+            }
+            else return
+        }
+        else return
+    }
 }
 
 const checkParenthesis = function parenthesis(newDisplayWindow){
