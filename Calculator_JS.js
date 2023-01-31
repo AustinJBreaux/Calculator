@@ -1,7 +1,8 @@
 //Global Variables
 let displayWindow = '';
 let numberRegExp = [0-9];
-let operatorRegExp = [/\+\/\*/]
+let operatorRegExp = [/\+\*\//
+]
 
 //Button Functions
 const numberClick = function numberClick(e){
@@ -124,6 +125,7 @@ const decimalButtonClick = function decimalButtonClick(e){
     checkConsecutiveOperators(newDisplayWindow);
     //checkForLaggingParenthesisNumber(newDisplayWindow);
     //checkSignChange(newDisplayWindow);
+    //checkDividingByZero
  };
  const checkLeadingOperator = function leadingOperator(newDisplayWindow){
     let testPosition = (newDisplayWindow.slice(0,1)).toString();
@@ -175,8 +177,8 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
 
 const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
     for(let counter = 0; counter < newDisplayWindow.length; counter++){
-        if(newDisplayWindow[`${counter}`] == operatorRegExp || "-"){
-            if(newDisplayWindow[`${counter+1}`] == operatorRegExp || "-"){
+        if(newDisplayWindow[`${counter}`] === operatorRegExp || "-"){
+            if(newDisplayWindow[`${counter+1}`] === operatorRegExp || "-"){
                 console.log("Error - Consecutive operators");
                 return
             }
@@ -210,15 +212,24 @@ const checkParenthesis = function parenthesis(newDisplayWindow){
 }
 
 const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDisplayWindow){
-    //for counter, if == ")"
-        //if newDisplayWindow[`${counter-1}`] == numberRegExp
-            //console.log("Error - The last character inside of a parenthesis must be a number")
+    for(let counter = 0; counter < newDisplayWindow.length; counter++){
+        if(newDisplayWindow[`${counter}`] == ")"){
+            if(newDisplayWindow[`${counter}`-1] == numberRegExp){
+                console.log("Error - The last character inside of a parenthesis must be a number")
+            }
+            else return
+        }
+        else return
+    }
 }
 const checkSignChange = function signChange(newDisplayWindow){
     //Find sign change index, and next character
         //if next != number, error
         //else
             //
+}
+const checkDividingByZero = function dividingByZero(newDisplayWindow){
+    //
 }
 
 //Data Functions
