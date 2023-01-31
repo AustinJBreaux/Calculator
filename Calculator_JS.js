@@ -1,8 +1,7 @@
 //Global Variables
 let displayWindow = '';
 let numberRegExp = [0-9];
-let operatorRegExp = [/\+\*\//
-]
+let operatorRegExp = [/\+\*\//]
 
 //Button Functions
 const numberClick = function numberClick(e){
@@ -177,14 +176,14 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
 
 const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
     for(let counter = 0; counter < newDisplayWindow.length; counter++){
-        if(newDisplayWindow[`${counter}`] === operatorRegExp || "-"){
-            if(newDisplayWindow[`${counter+1}`] === operatorRegExp || "-"){
-                console.log("Error - Consecutive operators");
-                return
-            }
-            else return
+        switch(newDisplayWindow[newDisplayWindow.counter]){
+            case("+" || "/" || "*" || "-"):
+                if(newDisplayWindow[newDisplayWindow.counter+1] == "+" || "/" || "*" || "-"){
+                    console.log("Error - Consecutive operators");
+                }
+                else return
+            break
         }
-        else return
     }
 }
 
