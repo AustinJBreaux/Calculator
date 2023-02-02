@@ -175,16 +175,16 @@ const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
 }
 
 const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
-    newDisplayWindow.forEach((element, index) => {
-        if(element.match(operatorRegExp)){
-            console.log("First found")
-            if(newDisplayWindow[index+1].matvch(operatorRegExp)){
-                console.log(`Error - Consecutive operators ${element} and ${newDisplayWindowindex+1}`)
+    for(let counter = 0; counter < newDisplayWindow.length; counter++){
+        let stickyOperatorRegExp = [/\+\/\*/y];
+        if(stickyOperatorRegExp[Symbol.match](newDisplayWindow[counter])){
+            if(stickyOperatorRegExp[Symbol.match](newDisplayWindow[counter+1])){
+                console.log(`Error - Consecutive operator: ${newDisplayWindow[counter]} and ${newDisplayWindow[counter+1]}`)
             }
             else return
         }
         else return
-    });
+    }
 }
 
 const checkParenthesis = function parenthesis(newDisplayWindow){
