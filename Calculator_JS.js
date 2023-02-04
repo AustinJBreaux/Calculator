@@ -209,20 +209,10 @@ const checkParenthesis = function parenthesis(newDisplayWindow){
 
 const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDisplayWindow){
     for(let counter = 0; counter < newDisplayWindow.length; counter++){
-        console.log(counter);
-        if(newDisplayWindow[counter] == ")"){
-            console.log(`Found at ${counter}`);
-            /*
-            if(newDisplayWindow[counter-1] !== Number){
-                console.log("Error - The last character of a parenthesis must be a number or a closed parenthesis");
-            }
-            else if (newDisplayWindow[counter-1] !== ")"){
-                console.log("Error - The last character of a parenthesis must be a number or a closed parenthesis");
-            }
-            else return
-            */
-        }
-        else return
+        let testsFor = [/0-9/, ")"];
+        let testsAgainst = newDisplayWindow[counter];
+        console.log(`Index: ${counter} - ${testsAgainst.includes(testsFor)}`)
+        //if(parenthesis.includes(test1) && test2)
     }
 }
 const checkSignChange = function signChange(newDisplayWindow){
