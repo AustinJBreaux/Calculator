@@ -122,7 +122,7 @@ const decimalButtonClick = function decimalButtonClick(e){
     checkLaggingDecimal(newDisplayWindow);
     checkParenthesis(newDisplayWindow);
     checkConsecutiveOperators(newDisplayWindow);
-    //checkForLaggingParenthesisNumber(newDisplayWindow);
+    checkForLaggingParenthesisNumber(newDisplayWindow);
     //checkSignChange(newDisplayWindow);
     //checkDividingByZero
  };
@@ -200,20 +200,27 @@ const checkParenthesis = function parenthesis(newDisplayWindow){
         else return
     })
     if(numberOpenParenthesis > numberClosedParenthesis){
-        console.log(`Error: Incorrect ( placement (Unopened parenthesis)`);
+        console.log(`Error: Incorrect ) placement (Missing closed parenthesis)`);
     }
     else if(numberClosedParenthesis > numberOpenParenthesis){
-        console.log(`Error: Incorrect ) placement (Unclosed parenthesis)`);
+        console.log(`Error: Incorrect ( placement (Missing open parenthesis)`);
     }
 }
 
 const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDisplayWindow){
     for(let counter = 0; counter < newDisplayWindow.length; counter++){
-        if(newDisplayWindow[`${counter}`] == ")"){
-            if(newDisplayWindow[`${counter}`-1] == numberRegExp){
-                console.log("Error - The last character inside of a parenthesis must be a number")
+        console.log(counter);
+        if(newDisplayWindow[counter] == ")"){
+            console.log(`Found at ${counter}`);
+            /*
+            if(newDisplayWindow[counter-1] !== Number){
+                console.log("Error - The last character of a parenthesis must be a number or a closed parenthesis");
+            }
+            else if (newDisplayWindow[counter-1] !== ")"){
+                console.log("Error - The last character of a parenthesis must be a number or a closed parenthesis");
             }
             else return
+            */
         }
         else return
     }
