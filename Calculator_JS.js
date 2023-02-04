@@ -106,9 +106,11 @@ const decimalButtonClick = function decimalButtonClick(e){
     else if(displayWindow != undefined || ''){
         let newDisplayWindow = displayWindow.split('e');
         newDisplayWindow = newDisplayWindow.filter(newDisplayWindow => newDisplayWindow != "");
-        errorFunctions(newDisplayWindow);
+        //errorFunctions(newDisplayWindow);
+        checkDividingByZero(newDisplayWindow);
         dataFunctions(newDisplayWindow);
         for(let counter = 0; counter < 10; counter++){//Replace with do while length != 1
+
         }
          
     console.log(newDisplayWindow);
@@ -209,9 +211,10 @@ const checkParenthesis = function parenthesis(newDisplayWindow){
 
 const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDisplayWindow){
     for(let counter = 0; counter < newDisplayWindow.length; counter++){
-        let testsFor = [/0-9/, ")"];
+        numberTest = parseInt(newDisplayWindow[counter], 10);
+        let testsFor = [numberTest, ")"];
         let testsAgainst = newDisplayWindow[counter];
-        console.log(`Index: ${counter} - ${testsAgainst.includes(testsFor)}`)
+        console.log(`Index: ${counter} - ${testsFor.includes(testsAgainst)}`);
         //if(parenthesis.includes(test1) && test2)
     }
 }
@@ -222,7 +225,12 @@ const checkSignChange = function signChange(newDisplayWindow){
             //
 }
 const checkDividingByZero = function dividingByZero(newDisplayWindow){
-    //
+    newDisplayWindow.forEach((element, index) => {
+        if(element == "/" && newDisplayWindow[index+1] == "0"){
+            console.log("Error - Division by zero");
+            return
+        }
+    });
 }
 
 //Data Functions
