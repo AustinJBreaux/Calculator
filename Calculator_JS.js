@@ -140,7 +140,17 @@ const dataFunctions = function dataFunctions(newDisplayWindow){
 }
 
 const combineNumbers = function combineNumbers(newDisplayWindow){
-    //
+
+    let testNumber = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    newDisplayWindow.forEach((element, index) => {
+        if(testNumber.includes(element) && testNumber.includes(newDisplayWindow[index+1])){
+            let combined = element.concat(newDisplayWindow[index+1]);
+            console.log(combined);
+            newDisplayWindow.splice(index, 1, combined);
+            newDisplayWindow.splice(index+1, 1);
+        }
+    });
+    
 }
 const combineDecimalNumbers = function combineDecimalNumbers(newDisplayWindow){
     //
