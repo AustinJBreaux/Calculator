@@ -145,7 +145,6 @@ const combineNumbers = function combineNumbers(newDisplayWindow){
     newDisplayWindow.forEach((element, index) => {
         if(testNumber.includes(element) && testNumber.includes(newDisplayWindow[index+1])){
             let combined = element.concat(newDisplayWindow[index+1]);
-            console.log(combined);
             newDisplayWindow.splice(index, 1, combined);
             newDisplayWindow.splice(index+1, 1);
         }
@@ -159,13 +158,27 @@ const placeholderForDecimal = function placeholderForDecimal(newDisplayWindow){
     });
 }
 const combineDecimalNumbers = function combineDecimalNumbers(newDisplayWindow){
-    let testNumber = ["."];
     newDisplayWindow.forEach((element, index) => {
-        if(testNumber.includes(element)){
-            let combined = newDisplayWindow[index-1];
-            console.log(combined);
-            //newDisplayWindow.splice(index, 1, combined);
-            //newDisplayWindow.splice(index+1, 1);
+        switch(element){
+            case ".":
+                if(Number.isInteger(Number.parseInt(newDisplayWindow[index-1]))
+                && Number.isInteger(Number.parseInt(newDisplayWindow[index+1]))){
+                    let combined = newDisplayWindow[index-1].concat(newDisplayWindow[index]);
+                    combined = combined.concat(newDisplayWindow[index+1]);
+                    newDisplayWindow.splice(index-1, 1, combined);
+                    newDisplayWindow.splice(index, 2);
+            }
+                else return
+                break
+
+            case "0.":
+                if(Number.isInteger(Number.parseInt(newDisplayWindow[index+1]))){
+                    let combined = newDisplayWindow[index].concat(newDisplayWindow[index+1]);
+                    newDisplayWindow.splice(index, 1, combined);
+                    newDisplayWindow.splice((index+1), 1);
+            }
+            else return
+            break
         }
     });
 }
