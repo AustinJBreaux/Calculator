@@ -132,7 +132,8 @@ const checkDividingByZero = function dividingByZero(newDisplayWindow){
 //Data Functions
 const dataFunctions = function dataFunctions(newDisplayWindow){
     combineNumbers(newDisplayWindow);
-    combineDecimalNumbers(newDisplayWindow);
+    placeholderForDecimal(newDisplayWindow);
+    //combineDecimalNumbers(newDisplayWindow);
     signChange(newDisplayWindow);
     signChange(newDisplayWindow);
     mergeParenthesis(newDisplayWindow);
@@ -140,7 +141,6 @@ const dataFunctions = function dataFunctions(newDisplayWindow){
 }
 
 const combineNumbers = function combineNumbers(newDisplayWindow){
-
     let testNumber = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     newDisplayWindow.forEach((element, index) => {
         if(testNumber.includes(element) && testNumber.includes(newDisplayWindow[index+1])){
@@ -150,10 +150,24 @@ const combineNumbers = function combineNumbers(newDisplayWindow){
             newDisplayWindow.splice(index+1, 1);
         }
     });
-    
+}
+const placeholderForDecimal = function placeholderForDecimal(newDisplayWindow){
+    newDisplayWindow.forEach((element, index) => {
+        if(element == "." && !Number.isInteger(Number.parseInt(newDisplayWindow[index-1]))){
+            newDisplayWindow[index] = element.replace(".", "0.");
+        }
+    });
 }
 const combineDecimalNumbers = function combineDecimalNumbers(newDisplayWindow){
-    //
+    let testNumber = [".", "0."];
+    newDisplayWindow.forEach((element, index) => {
+        if(testNumber.includes(element)){
+            let combined = newDisplayWindow[index-1];
+            console.log(combined);
+            newDisplayWindow.splice(index, 1, combined);
+            newDisplayWindow.splice(index+1, 1);
+        }
+    });
 }
 const signChange = function signChange(newDisplayWindow){
     //
