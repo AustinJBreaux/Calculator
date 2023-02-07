@@ -133,7 +133,7 @@ const checkDividingByZero = function dividingByZero(newDisplayWindow){
 const dataFunctions = function dataFunctions(newDisplayWindow){
     combineNumbers(newDisplayWindow);
     placeholderForDecimal(newDisplayWindow);
-    //combineDecimalNumbers(newDisplayWindow);
+    combineDecimalNumbers(newDisplayWindow);
     signChange(newDisplayWindow);
     signChange(newDisplayWindow);
     mergeParenthesis(newDisplayWindow);
@@ -159,13 +159,13 @@ const placeholderForDecimal = function placeholderForDecimal(newDisplayWindow){
     });
 }
 const combineDecimalNumbers = function combineDecimalNumbers(newDisplayWindow){
-    let testNumber = [".", "0."];
+    let testNumber = ["."];
     newDisplayWindow.forEach((element, index) => {
         if(testNumber.includes(element)){
             let combined = newDisplayWindow[index-1];
             console.log(combined);
-            newDisplayWindow.splice(index, 1, combined);
-            newDisplayWindow.splice(index+1, 1);
+            //newDisplayWindow.splice(index, 1, combined);
+            //newDisplayWindow.splice(index+1, 1);
         }
     });
 }
