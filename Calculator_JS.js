@@ -40,6 +40,7 @@ const clearButtonClick = function clearButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         displayWindow = ''
+        console.clear();
     }
 }
 
@@ -192,8 +193,7 @@ const signChange = function signChange(displayWindowArray){
     });
 }
 const mergeAll = function mergeAll(displayWindowArray){
-    let mergedDisplayWindow = displayWindowArray.join("");
-    console.log(mergedDisplayWindow);
+    //
 }
 const finalEvaluations = function finalEvaluations(displayWindowArray){
     //
