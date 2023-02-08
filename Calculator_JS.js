@@ -104,15 +104,15 @@ const decimalButtonClick = function decimalButtonClick(e){
         return
     }
     else if(displayWindow != undefined || ''){
-        let newDisplayWindow = displayWindow.split('e');
-        newDisplayWindow = newDisplayWindow.filter(newDisplayWindow => newDisplayWindow != "");
-        checkDividingByZero(newDisplayWindow);
-        dataFunctions(newDisplayWindow);
+        let displayWindowArray = displayWindow.split('e');
+        displayWindowArray = displayWindowArray.filter(displayWindowArray => displayWindowArray != "");
+        checkDividingByZero(displayWindowArray);
+        dataFunctions(displayWindowArray);
         for(let counter = 0; counter < 10; counter++){//Replace with do while length != 1
 
         }
          
-    console.log(newDisplayWindow);
+    console.log(displayWindowArray);
     }
  }
 
@@ -120,9 +120,9 @@ const decimalButtonClick = function decimalButtonClick(e){
  //All error functions have been removed, rely on the user to figure out why it's erroring
  //They're in a notepad in the calculator folder
  
-const checkDividingByZero = function dividingByZero(newDisplayWindow){
-    newDisplayWindow.forEach((element, index) => {
-        if(element == "/" && newDisplayWindow[index+1] == "0"){
+const checkDividingByZero = function dividingByZero(displayWindowArray){
+    displayWindowArray.forEach((element, index) => {
+        if(element == "/" && displayWindowArray[index+1] == "0"){
             console.log("Error - Division by zero");
             return
         }
@@ -130,71 +130,72 @@ const checkDividingByZero = function dividingByZero(newDisplayWindow){
 }
 
 //Data Functions
-const dataFunctions = function dataFunctions(newDisplayWindow){
-    combineNumbers(newDisplayWindow);
-    placeholderForDecimal(newDisplayWindow);
-    combineDecimalNumbers(newDisplayWindow);
-    signChange(newDisplayWindow);
-    signChange(newDisplayWindow);
-    mergeParenthesis(newDisplayWindow);
-    finalEvaluations(newDisplayWindow);
+const dataFunctions = function dataFunctions(displayWindowArray){
+    combineNumbers(displayWindowArray);
+    placeholderForDecimal(displayWindowArray);
+    combineDecimalNumbers(displayWindowArray);
+    signChange(displayWindowArray);
+    signChange(displayWindowArray);
+    mergeAll(displayWindowArray);
+    finalEvaluations(displayWindowArray);
 }
 
-const combineNumbers = function combineNumbers(newDisplayWindow){
+const combineNumbers = function combineNumbers(displayWindowArray){
     let testNumber = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    newDisplayWindow.forEach((element, index) => {
-        if(testNumber.includes(element) && testNumber.includes(newDisplayWindow[index+1])){
-            let combined = element.concat(newDisplayWindow[index+1]);
-            newDisplayWindow.splice(index, 1, combined);
-            newDisplayWindow.splice(index+1, 1);
+    displayWindowArray.forEach((element, index) => {
+        if(testNumber.includes(element) && testNumber.includes(displayWindowArray[index+1])){
+            let combined = element.concat(displayWindowArray[index+1]);
+            displayWindowArray.splice(index, 1, combined);
+            displayWindowArray.splice(index+1, 1);
         }
     });
 }
-const placeholderForDecimal = function placeholderForDecimal(newDisplayWindow){
-    newDisplayWindow.forEach((element, index) => {
-        if(element == "." && !Number.isInteger(Number.parseInt(newDisplayWindow[index-1]))){
-            newDisplayWindow[index] = element.replace(".", "0.");
+const placeholderForDecimal = function placeholderForDecimal(displayWindowArray){
+    displayWindowArray.forEach((element, index) => {
+        if(element == "." && !Number.isInteger(Number.parseInt(displayWindowArray[index-1]))){
+            displayWindowArray[index] = element.replace(".", "0.");
         }
     });
 }
-const combineDecimalNumbers = function combineDecimalNumbers(newDisplayWindow){
-    newDisplayWindow.forEach((element, index) => {
+const combineDecimalNumbers = function combineDecimalNumbers(displayWindowArray){
+    displayWindowArray.forEach((element, index) => {
         switch(element){
             case ".":
-                if(Number.isInteger(Number.parseInt(newDisplayWindow[index-1]))
-                && Number.isInteger(Number.parseInt(newDisplayWindow[index+1]))){
-                    let combined = newDisplayWindow[index-1].concat(newDisplayWindow[index]);
-                    combined = combined.concat(newDisplayWindow[index+1]);
-                    newDisplayWindow.splice(index-1, 1, combined);
-                    newDisplayWindow.splice(index, 2);
+                if(Number.isInteger(Number.parseInt(displayWindowArray[index-1]))
+                && Number.isInteger(Number.parseInt(displayWindowArray[index+1]))){
+                    let combined = displayWindowArray[index-1].concat(displayWindowArray[index]);
+                    combined = combined.concat(displayWindowArray[index+1]);
+                    displayWindowArray.splice(index-1, 1, combined);
+                    displayWindowArray.splice(index, 2);
             }
                 else return
                 break
 
             case "0.":
-                if(Number.isInteger(Number.parseInt(newDisplayWindow[index+1]))){
-                    let combined = newDisplayWindow[index].concat(newDisplayWindow[index+1]);
-                    newDisplayWindow.splice(index, 1, combined);
-                    newDisplayWindow.splice((index+1), 1);
+                if(Number.isInteger(Number.parseInt(displayWindowArray[index+1]))){
+                    let combined = displayWindowArray[index].concat(displayWindowArray[index+1]);
+                    displayWindowArray.splice(index, 1, combined);
+                    displayWindowArray.splice((index+1), 1);
             }
             else return
             break
         }
     });
 }
-const signChange = function signChange(newDisplayWindow){
-    newDisplayWindow.forEach((element, index) => {
+const signChange = function signChange(displayWindowArray){
+    displayWindowArray.forEach((element, index) => {
         let signChangeTest = [" -"];
         if(signChangeTest.includes(element)){
-            let combined = newDisplayWindow[index].concat(newDisplayWindow[index+1]);
-            newDisplayWindow.splice(index, 2, combined);
+            let combined = displayWindowArray[index].concat(displayWindowArray[index+1]);
+            displayWindowArray.splice(index, 2, combined);
         }
     });
 }
-const mergeParenthesis = function mergeParenthesis(newDisplayWindow){
-    //
+const mergeAll = function mergeAll(displayWindowArray){
+    let mergedDisplayWindow = displayWindowArray.join("");
+    console.log(mergedDisplayWindow);
 }
-const finalEvaluations = function finalEvaluations(newDisplayWindow){
+const finalEvaluations = function finalEvaluations(displayWindowArray){
     //
 }
 
