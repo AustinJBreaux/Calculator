@@ -137,7 +137,7 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     combineDecimalNumbers(displayWindowArray);
     signChange(displayWindowArray);
     signChange(displayWindowArray);
-    mergeAll(displayWindowArray);
+    mergeBetweenParenthesis(displayWindowArray);
     finalEvaluations(displayWindowArray);
 }
 
@@ -192,8 +192,21 @@ const signChange = function signChange(displayWindowArray){
         }
     });
 }
-const mergeAll = function mergeAll(displayWindowArray){
-    //
+const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowArray){
+    /*
+    displayWindowArray.find(("(", index) => {
+        let skipValue = 0;
+        let openParIndex = index;
+        for(counter = counter; counter < displayWindowArray.length; counter++){
+            if(displayWindoArray[counter] == "("){
+                    
+            }
+        }
+    })
+    
+    
+    }
+    */
 }
 const finalEvaluations = function finalEvaluations(displayWindowArray){
     //
