@@ -183,7 +183,13 @@ const combineDecimalNumbers = function combineDecimalNumbers(newDisplayWindow){
     });
 }
 const signChange = function signChange(newDisplayWindow){
-    //
+    newDisplayWindow.forEach((element, index) => {
+        let signChangeTest = [" -"];
+        if(signChangeTest.includes(element)){
+            let combined = newDisplayWindow[index].concat(newDisplayWindow[index+1]);
+            newDisplayWindow.splice(index, 2, combined);
+        }
+    });
 }
 const mergeParenthesis = function mergeParenthesis(newDisplayWindow){
     //
