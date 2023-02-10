@@ -194,12 +194,20 @@ const signChange = function signChange(displayWindowArray){
 }
 const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowArray){
     /*
-    displayWindowArray.find(("(", index) => {
+    displayWindowArray.find("(", index) => {
         let skipValue = 0;
         let openParIndex = index;
-        for(counter = counter; counter < displayWindowArray.length; counter++){
+        let closedParIndex = ""
+        for(let counter = index+1; counter < displayWindowArray.length; counter++){
             if(displayWindoArray[counter] == "("){
-                    
+                skipValue++;
+            }
+            else if(skipValue < 0 && displayWindowArray[counter] == ")"){
+                skipValue--;
+                return
+            }
+            else if(skipValue < 1 && displayWindowArray[counter] == ")"){
+                let closedParIndex = counter;
             }
         }
     })
