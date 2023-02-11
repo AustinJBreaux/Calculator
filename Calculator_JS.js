@@ -193,31 +193,46 @@ const signChange = function signChange(displayWindowArray){
     });
 }
 const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowArray){
-    /*
-    displayWindowArray.find("(", index) => {
+    displayWindowArray.find("(", index => {
         let skipValue = 0;
         let openParIndex = index;
         let closedParIndex = ""
         for(let counter = index+1; counter < displayWindowArray.length; counter++){
             if(displayWindoArray[counter] == "("){
                 skipValue++;
+                return
             }
             else if(skipValue < 0 && displayWindowArray[counter] == ")"){
                 skipValue--;
                 return
             }
             else if(skipValue < 1 && displayWindowArray[counter] == ")"){
-                let closedParIndex = counter;
+                closedParIndex = counter;
+                //merge between openPar and closedPar
             }
         }
     })
-    
-    
-    }
-    */
 }
 const finalEvaluations = function finalEvaluations(displayWindowArray){
-    //
+    /*
+    let accumulator = displayWindowArray[0];
+    let operator = displayWindowArray[1];
+
+    if(initialvalue != Undefined){
+        const finalDisplayWindow = displayWindowArray.reduce(
+        (first, accumulator) => {
+            first `${operator}` accumulator, initialValue
+        }
+    )
+    }
+    else if(initialValue == undefined){
+        let initialValue = 0;
+        const finalDisplayWindow = displayWindowArray.reduce(
+        (first, accumulator) => {
+            first `${operator}` accumulator, initialValue
+        }
+    }
+    */
 }
 
 //Event Listeners
