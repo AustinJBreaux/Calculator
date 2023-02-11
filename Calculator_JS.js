@@ -4,6 +4,22 @@ let numberRegExp = [0-9];
 let operatorRegExp = [/\+\/\*/i]
 
 //Button Functions
+//Debug
+const testButtonClick = function testButtonClick(e){
+    if(e.target.classList != 'testButton'){
+        return
+    }
+    else if(e.target.classList == 'testButton'){
+        let buttonPresses = '8+78+55+26';//Add here
+        let splitTest = buttonPresses.split('');
+        splitTest.forEach((element, index) => {
+            splitTest.splice(index, 1, `e${element}`)
+        });
+        displayWindow = splitTest.join('');
+        
+    }
+    else return
+}
 const numberClick = function numberClick(e){
     if(e.target.classList != 'numberButton'){
         return
@@ -20,7 +36,7 @@ const numberClick = function numberClick(e){
         console.log(toInsert);
     }
     
-    else console.log('Nope')
+    else return
 }
 
 const operatorClick = function operatorClick(e){
@@ -137,8 +153,8 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     combineDecimalNumbers(displayWindowArray);
     signChange(displayWindowArray);
     signChange(displayWindowArray);
-    mergeBetweenParenthesis(displayWindowArray);
-    finalEvaluations(displayWindowArray);
+    //mergeBetweenParenthesis(displayWindowArray);
+    //finalEvaluations(displayWindowArray);
 }
 
 const combineNumbers = function combineNumbers(displayWindowArray){
@@ -195,20 +211,31 @@ const signChange = function signChange(displayWindowArray){
 const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowArray){
     displayWindowArray.find("(", index => {
         let skipValue = 0;
-        let openParIndex = index;
-        let closedParIndex = ""
-        for(let counter = index+1; counter < displayWindowArray.length; counter++){
-            if(displayWindoArray[counter] == "("){
+        let parenthesisStart = index;
+        let parenthesisEnd = "";
+        for(let position = parenthesisStart+1; position < displayWindowArray.length; position++){
+            if(displayWindowArray[position] == "("){
                 skipValue++;
                 return
             }
-            else if(skipValue < 0 && displayWindowArray[counter] == ")"){
+            else if(skipValue > 0 && displayWindowArray[position] == ")"){
                 skipValue--;
                 return
             }
-            else if(skipValue < 1 && displayWindowArray[counter] == ")"){
-                closedParIndex = counter;
-                //merge between openPar and closedPar
+            else if(skipValue < 1 && displayWindowArray[position] == ")"){
+                parenthesisEnd = position;
+                let toCombineLength = parenthesisEnd - parenthesisStart;
+                let combined = "";
+                for(let mergeCounter = 1; mergeCounter < toCombineLength; mergeCounter++){
+                    combined = displayWindowArray[parenthesisStart].concat(
+                        displayWindowArray[parenthesisStart+mergeCounter]
+                    )
+                    displayWindowArray.splice(parenthesisStart, 0, combined);
+                    displayWindowArray.splice(parenthesisStart, 1);
+                }
+            }
+            else{
+                return
             }
         }
     })
@@ -245,3 +272,4 @@ document.addEventListener("click", backspaceButtonClick);
 document.addEventListener("click", signChangeButtonClick);
 document.addEventListener("click", decimalButtonClick);
 document.addEventListener("click", enterButtonClick);
+document.addEventListener("click", testButtonClick)
