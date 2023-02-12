@@ -4,19 +4,18 @@ let numberRegExp = [0-9];
 let operatorRegExp = [/\+\/\*/i]
 
 //Button Functions
-//Debug
-const testButtonClick = function testButtonClick(e){
+const testButtonClick = function testButtonClick(e){//Debug
     if(e.target.classList != 'testButton'){
         return
     }
     else if(e.target.classList == 'testButton'){
-        let buttonPresses = '8+78+55+26';//Add here
+        let buttonPresses = '100*2658';//Add here
         let splitTest = buttonPresses.split('');
         splitTest.forEach((element, index) => {
             splitTest.splice(index, 1, `e${element}`)
         });
         displayWindow = splitTest.join('');
-        
+        console.log(`Pressing ${buttonPresses}`);
     }
     else return
 }
@@ -158,14 +157,44 @@ const dataFunctions = function dataFunctions(displayWindowArray){
 }
 
 const combineNumbers = function combineNumbers(displayWindowArray){
-    let testNumber = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    displayWindowArray.forEach((element, index) => {
+        let previous = Number.isInteger(Number.parseInt(displayWindowArray[index-1]));
+        let current = Number.isInteger(Number.parseInt(displayWindowArray[index]));
+        let next = Number.isInteger(Number.parseInt(displayWindowArray[index+1]));
+        if(!previous && current){
+            return
+        }
+        else if(previous && current){
+            let combined = displayWindowArray[index].concat(displayWindowArray[index+1]);
+            displayWindowArray.splice(index, 1, combined);
+            displayWindowArray.splice(index+1, 1);
+        }
+        else if(current && next){
+            let combined = 
+        }
+        else if(current && !next){
+            let combined = displayWindowArray[index-1].concat(displayWindowArray[index]);
+            displayWindowArray.splice(index-1, 1, combined);
+            displayWindowArray.splice(index, 1);
+        }
+       
+    });
+    
+    
+    /*Works for 2 consecutive
+    
     displayWindowArray.forEach((element, index) => {
         if(testNumber.includes(element) && testNumber.includes(displayWindowArray[index+1])){
             let combined = element.concat(displayWindowArray[index+1]);
             displayWindowArray.splice(index, 1, combined);
             displayWindowArray.splice(index+1, 1);
         }
+        else if(testNumber.includes(element.split('')) &&
+        testNumber.includes(displayWindowArray[index+1])){
+            console.log(element.split());
+        }
     });
+    */
 }
 const placeholderForDecimal = function placeholderForDecimal(displayWindowArray){
     displayWindowArray.forEach((element, index) => {
@@ -209,37 +238,40 @@ const signChange = function signChange(displayWindowArray){
     });
 }
 const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowArray){
-    displayWindowArray.find("(", index => {
-        let skipValue = 0;
-        let parenthesisStart = index;
-        let parenthesisEnd = "";
-        for(let position = parenthesisStart+1; position < displayWindowArray.length; position++){
-            if(displayWindowArray[position] == "("){
-                skipValue++;
-                return
-            }
-            else if(skipValue > 0 && displayWindowArray[position] == ")"){
-                skipValue--;
-                return
-            }
-            else if(skipValue < 1 && displayWindowArray[position] == ")"){
-                parenthesisEnd = position;
-                let toCombineLength = parenthesisEnd - parenthesisStart;
-                let combined = "";
-                for(let mergeCounter = 1; mergeCounter < toCombineLength; mergeCounter++){
-                    combined = displayWindowArray[parenthesisStart].concat(
-                        displayWindowArray[parenthesisStart+mergeCounter]
-                    )
-                    displayWindowArray.splice(parenthesisStart, 0, combined);
-                    displayWindowArray.splice(parenthesisStart, 1);
-                }
-            }
-            else{
-                return
+    let parenthesisStart = undefined;
+    let testOpenParen = (element) => {element == "("}
+    let skipValue = 0;
+    let parenthesisEnd = "";
+    parenthesisStart = displayWindowArray.findIndex(testOpenParen);
+    console.log(parenthesisStart);
+    for(let position = parenthesisStart+1; position < displayWindowArray.length; position++){
+        console.log(position);
+        if(displayWindowArray[position] == "("){
+            skipValue++;
+            return
+        }
+        else if(skipValue > 0 && displayWindowArray[position] == ")"){
+            skipValue--;
+            return
+        }
+        else if(skipValue < 1 && displayWindowArray[position] == ")"){
+            parenthesisEnd = position;
+            let toCombineLength = parenthesisEnd - parenthesisStart;
+            let combined = "";
+            for(let mergeCounter = 1; mergeCounter < toCombineLength; mergeCounter++){
+                combined = displayWindowArray[parenthesisStart].concat(
+                    displayWindowArray[parenthesisStart+mergeCounter]
+                )
+                displayWindowArray.splice(parenthesisStart, 0, combined);
+                displayWindowArray.splice(parenthesisStart, 1);
             }
         }
-    })
+        else{
+            return
+        }
+    }
 }
+
 const finalEvaluations = function finalEvaluations(displayWindowArray){
     /*
     let accumulator = displayWindowArray[0];
