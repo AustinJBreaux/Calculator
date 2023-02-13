@@ -10,7 +10,7 @@ const testButtonClick = function testButtonClick(e){//Debug
     }
     else if(e.target.classList == 'testButton'){
         let buttonPresses = '';//Add here
-        let splitTest = buttonPresses.s('');
+        let splitTest = buttonPresses.split('');
         splitTest.forEach((element, index) => {
             splitTest.splice(index, 1, `e${element}`)
         });
@@ -155,7 +155,6 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     //mergeBetweenParenthesis(displayWindowArray);
     //finalEvaluations(displayWindowArray);
 }
-
 const combineNumbers = function combineNumbers(displayWindowArray){
     for(let counter = 0; counter < displayWindowArray.length+100; counter++){
         displayWindowArray.forEach((element, index) => {
