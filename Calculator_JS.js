@@ -9,7 +9,7 @@ const testButtonClick = function testButtonClick(e){//Debug
         return
     }
     else if(e.target.classList == 'testButton'){
-        let buttonPresses = '100*2658';//Add here
+        let buttonPresses = '12345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984';//Add here
         let splitTest = buttonPresses.split('');
         splitTest.forEach((element, index) => {
             splitTest.splice(index, 1, `e${element}`)
@@ -155,32 +155,58 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     //mergeBetweenParenthesis(displayWindowArray);
     //finalEvaluations(displayWindowArray);
 }
-
+/*
+New idea: iterate over dwa
+do
+    if index and index+1 == numbers
+        concat/splice
+    if else recursion
+while dwa.length pre != post
+*/
 const combineNumbers = function combineNumbers(displayWindowArray){
-    displayWindowArray.forEach((element, index) => {
-        let previous = Number.isInteger(Number.parseInt(displayWindowArray[index-1]));
-        let current = Number.isInteger(Number.parseInt(displayWindowArray[index]));
-        let next = Number.isInteger(Number.parseInt(displayWindowArray[index+1]));
-        if(!previous && current){
-            return
-        }
-        else if(previous && current){
-            let combined = displayWindowArray[index].concat(displayWindowArray[index+1]);
-            displayWindowArray.splice(index, 1, combined);
-            displayWindowArray.splice(index+1, 1);
-        }
-        else if(current && next){
-            let combined = 
-        }
-        else if(current && !next){
-            let combined = displayWindowArray[index-1].concat(displayWindowArray[index]);
-            displayWindowArray.splice(index-1, 1, combined);
-            displayWindowArray.splice(index, 1);
-        }
-       
+    for(let counter = 0; counter < displayWindowArray.length+20; counter++){
+        displayWindowArray.forEach((element, index) => {
+            let test1 = Number.isInteger(Number.parseInt(element));
+            let test2 = Number.isInteger(Number.parseInt(displayWindowArray[index+1]));
+            let combine = "";
+            if(test1 && test2){
+                combine = combine.concat(displayWindowArray[index]);
+                combine = combine.concat(displayWindowArray[index+1]);
+                displayWindowArray.splice(index, 1, combine);
+                displayWindowArray.splice((index+1), 1);
+           }
+           else if(test1 && (displayWindowArray[index+1] == undefined)){
+                combine = combine.concat(displayWindowArray[index]);
+                displayWindowArray.splice(index, 1, combine)
+           }
+           else {
+            combineNumbers
+           }
+        });
+    }
+}
+
+    /*
+    let combine = "";
+    let numberLength = 0;
+    tfArray = [];
+    displayWindowArray.forEach(element => {
+        tfArray.push(Number.isInteger(Number.parseInt(element)))
     });
-    
-    
+    tfArray.forEach((element, index) => {
+        if(element){
+            numberLength++;
+            combine = combine.concat(displayWindowArray[index]);
+        }
+        else{
+            displayWindowArray.splice((index-numberLength), numberLength, undefined);
+            displayWindowArray.splice((index-numberLength), 1, combine);
+            console.log(combine);
+            combine = "";
+            numberLength = 0;
+        }
+    });
+    */
     /*Works for 2 consecutive
     
     displayWindowArray.forEach((element, index) => {
@@ -195,7 +221,6 @@ const combineNumbers = function combineNumbers(displayWindowArray){
         }
     });
     */
-}
 const placeholderForDecimal = function placeholderForDecimal(displayWindowArray){
     displayWindowArray.forEach((element, index) => {
         if(element == "." && !Number.isInteger(Number.parseInt(displayWindowArray[index-1]))){
