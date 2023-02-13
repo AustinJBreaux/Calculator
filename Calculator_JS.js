@@ -9,8 +9,8 @@ const testButtonClick = function testButtonClick(e){//Debug
         return
     }
     else if(e.target.classList == 'testButton'){
-        let buttonPresses = '12345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984123456789654651658498465169879841234567896546516584984651698798412345678965465165849846516987984';//Add here
-        let splitTest = buttonPresses.split('');
+        let buttonPresses = '';//Add here
+        let splitTest = buttonPresses.s('');
         splitTest.forEach((element, index) => {
             splitTest.splice(index, 1, `e${element}`)
         });
@@ -155,16 +155,9 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     //mergeBetweenParenthesis(displayWindowArray);
     //finalEvaluations(displayWindowArray);
 }
-/*
-New idea: iterate over dwa
-do
-    if index and index+1 == numbers
-        concat/splice
-    if else recursion
-while dwa.length pre != post
-*/
+
 const combineNumbers = function combineNumbers(displayWindowArray){
-    for(let counter = 0; counter < displayWindowArray.length+20; counter++){
+    for(let counter = 0; counter < displayWindowArray.length+100; counter++){
         displayWindowArray.forEach((element, index) => {
             let test1 = Number.isInteger(Number.parseInt(element));
             let test2 = Number.isInteger(Number.parseInt(displayWindowArray[index+1]));
@@ -186,41 +179,6 @@ const combineNumbers = function combineNumbers(displayWindowArray){
     }
 }
 
-    /*
-    let combine = "";
-    let numberLength = 0;
-    tfArray = [];
-    displayWindowArray.forEach(element => {
-        tfArray.push(Number.isInteger(Number.parseInt(element)))
-    });
-    tfArray.forEach((element, index) => {
-        if(element){
-            numberLength++;
-            combine = combine.concat(displayWindowArray[index]);
-        }
-        else{
-            displayWindowArray.splice((index-numberLength), numberLength, undefined);
-            displayWindowArray.splice((index-numberLength), 1, combine);
-            console.log(combine);
-            combine = "";
-            numberLength = 0;
-        }
-    });
-    */
-    /*Works for 2 consecutive
-    
-    displayWindowArray.forEach((element, index) => {
-        if(testNumber.includes(element) && testNumber.includes(displayWindowArray[index+1])){
-            let combined = element.concat(displayWindowArray[index+1]);
-            displayWindowArray.splice(index, 1, combined);
-            displayWindowArray.splice(index+1, 1);
-        }
-        else if(testNumber.includes(element.split('')) &&
-        testNumber.includes(displayWindowArray[index+1])){
-            console.log(element.split());
-        }
-    });
-    */
 const placeholderForDecimal = function placeholderForDecimal(displayWindowArray){
     displayWindowArray.forEach((element, index) => {
         if(element == "." && !Number.isInteger(Number.parseInt(displayWindowArray[index-1]))){
