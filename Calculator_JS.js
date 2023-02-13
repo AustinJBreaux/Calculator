@@ -156,6 +156,11 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     //finalEvaluations(displayWindowArray);
 }
 const combineNumbers = function combineNumbers(displayWindowArray){
+    /*Note: 
+        This function can cause an error if any single number is greater than 512 numbers long. 
+        This character length can be extended by increasing the number after the
+        "displayWindowArray.length+___" below (currently 100), but this shouldn't be a problem
+    */
     for(let counter = 0; counter < displayWindowArray.length+100; counter++){
         displayWindowArray.forEach((element, index) => {
             let test1 = Number.isInteger(Number.parseInt(element));
