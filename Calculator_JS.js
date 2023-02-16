@@ -9,7 +9,7 @@ const testButtonClick = function testButtonClick(e){//Debug
         return
     }
     else if(e.target.classList == 'testButton'){
-        let buttonPresses = '';//Add here
+        let buttonPresses = '898+((1+123))';//Add here
         let splitTest = buttonPresses.split('');
         splitTest.forEach((element, index) => {
             splitTest.splice(index, 1, `e${element}`)
@@ -152,7 +152,7 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     combineDecimalNumbers(displayWindowArray);
     signChange(displayWindowArray);
     signChange(displayWindowArray);
-    //mergeBetweenParenthesis(displayWindowArray);
+    mergeBetweenParenthesis(displayWindowArray);
     //finalEvaluations(displayWindowArray);
 }
 const combineNumbers = function combineNumbers(displayWindowArray){
@@ -225,6 +225,39 @@ const signChange = function signChange(displayWindowArray){
     });
 }
 const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowArray){
+    let skipValue = 0;
+    let startValue = "";
+    let endValue = "";
+
+    let merge = function merge(){
+        let combined = ""
+        for(let counter = 0; counter < (endValue - startValue); counter++){
+            combined = displayWindowArray[startValue].concat(displayWindowArray[counter]);
+        }
+        displayWindowArray.splice(startValue, 1, combined);
+        displayWindowArray.splice(startValue, (endValue - startValue));
+        }
+
+    for(counter = 0; counter < displayWindowArray.length; counter++){
+        if(displayWindowArray[counter] == "(" && startValue != ""){
+            skipValue++;
+        }
+        else if(displayWindowArray[counter] == "(" && skipValue == 0){
+            startValue = index;
+        }
+        else if(displayWindowArray[counter] == ")" && skipValue > 0){
+            skipValue--;
+        }
+        else if(displayWindowArray[counter] == ")" && skipValue == 0){
+            endValue = index;
+            merge();
+            startValue = ""; endValue = "";
+            mergeBetweenParenthesis();
+        }
+        else console.log("Pog"); return
+    }
+    console.log(`Start: ${startValue}, Stop:${endValue}`)
+    /*
     let parenthesisStart = undefined;
     let testOpenParen = (element) => {element == "("}
     let skipValue = 0;
@@ -257,6 +290,7 @@ const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowAr
             return
         }
     }
+    */
 }
 
 const finalEvaluations = function finalEvaluations(displayWindowArray){
