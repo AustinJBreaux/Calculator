@@ -153,7 +153,7 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     signChange(displayWindowArray);
     signChange(displayWindowArray);
     mergeBetweenParenthesis(displayWindowArray);
-    //finalEvaluations(displayWindowArray);
+    finalEvaluations(displayWindowArray);
 }
 const combineNumbers = function combineNumbers(displayWindowArray){
     /*Note: 
@@ -291,22 +291,38 @@ const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowAr
 
 const finalEvaluations = function finalEvaluations(displayWindowArray){
     /*
-    let accumulator = displayWindowArray[0];
-    let operator = displayWindowArray[1];
+    if(initialValue == undefined){
+        reduce((accumulator, currentValue, currentIndex) => {
+            if(currentIndex == "/"){
 
-    if(initialvalue != Undefined){
-        const finalDisplayWindow = displayWindowArray.reduce(
-        (first, accumulator) => {
-            first `${operator}` accumulator, initialValue
-        }
-    )
+            }
+            else if(currentIndex == "*"){
+
+            }
+            else if(currentIndex == "+"){
+
+            }
+            else if(currentIndex == "-"){
+                
+            }
+        })
     }
-    else if(initialValue == undefined){
-        let initialValue = 0;
-        const finalDisplayWindow = displayWindowArray.reduce(
-        (first, accumulator) => {
-            first `${operator}` accumulator, initialValue
-        }
+    else if(initialValue == Number){
+        reduce((accumulator, currentValue, currentIndex) => {
+            accumulator = finalDisplayWindow;
+            if(currentIndex == "/"){
+                accumulator/currentValue
+            }
+            else if(currentIndex == "*"){
+
+            }
+            else if(currentIndex == "+"){
+
+            }
+            else if(currentIndex == "-"){
+
+            }
+        })
     }
     */
 }
