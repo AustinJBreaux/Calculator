@@ -152,7 +152,6 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     combineDecimalNumbers(displayWindowArray);
     signChange(displayWindowArray);
     signChange(displayWindowArray);
-    //mergeBetweenParenthesis(displayWindowArray);
     finalEvaluations(displayWindowArray);
 }
 const combineNumbers = function combineNumbers(displayWindowArray){
@@ -182,7 +181,6 @@ const combineNumbers = function combineNumbers(displayWindowArray){
         });
     }
 }
-
 const placeholderForDecimal = function placeholderForDecimal(displayWindowArray){
     displayWindowArray.forEach((element, index) => {
         if(element == "." && !Number.isInteger(Number.parseInt(displayWindowArray[index-1]))){
@@ -224,78 +222,28 @@ const signChange = function signChange(displayWindowArray){
         }
     });
 }
-const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowArray){
-    let skipValue = 0;
-    let startValue = "";
-    let endValue = "";
-
-    displayWindowArray.forEach((element, index)=> {
-        if(element == "(" && startValue !== ""){
-            skipValue++;
-        }
-        else if(element == "(" && skipValue == 0){
-            startValue = index;
-        }
-        else if(element == ")" && skipValue > 0){
-            skipValue--;
-        }
-        else if(element == ")" && skipValue == 0){
-            endValue = index;
-            for(let counter = 1; counter < (endValue-startValue)+1; counter++){
-                let combined = displayWindowArray[startValue].concat(displayWindowArray[startValue + counter]);
-                displayWindowArray.splice(startValue, 1, combined);
-            }
-            displayWindowArray.splice(startValue+1, (endValue - startValue));
-            startValue = ""; endValue = "";
-            mergeBetweenParenthesis(displayWindowArray);
-        }
-        else return
-    });
-    
-
-    /*
-    let parenthesisStart = undefined;
-    let testOpenParen = (element) => {element == "("}
-    let skipValue = 0;
-    let parenthesisEnd = "";
-    parenthesisStart = displayWindowArray.findIndex(testOpenParen);
-    console.log(parenthesisStart);
-    for(let position = parenthesisStart+1; position < displayWindowArray.length; position++){
-        console.log(position);
-        if(displayWindowArray[position] == "("){
-            skipValue++;
-            return
-        }
-        else if(skipValue > 0 && displayWindowArray[position] == ")"){
-            skipValue--;
-            return
-        }
-        else if(skipValue < 1 && displayWindowArray[position] == ")"){
-            parenthesisEnd = position;
-            let toCombineLength = parenthesisEnd - parenthesisStart;
-            let combined = "";
-            for(let mergeCounter = 1; mergeCounter < toCombineLength; mergeCounter++){
-                combined = displayWindowArray[parenthesisStart].concat(
-                    displayWindowArray[parenthesisStart+mergeCounter]
-                )
-                displayWindowArray.splice(parenthesisStart, 0, combined);
-                displayWindowArray.splice(parenthesisStart, 1);
-            }
-        }
-        else{
-            return
-        }
-    }
-    */
-}
 
 const finalEvaluations = function finalEvaluations(displayWindowArray){
-    let finalDisplayWindow = [];
-    displayWindowArray.forEach(element => {
-        if(element == "("){
-            finalDisplayWindow.push([(])
+    let initialValue = displayWindowArray[0]
+    let finalDisplayWindow = displayWindowArray.reduce((accumulator, currentValue, currentIndex) => {
+        //if(initialValue == Number){
+            accumulator = parseInt(accumulator);
+            currentValue = parseInt(currentValue);
+            if(currentIndex == "/"){
+                accumulator / currentValue, initialValue;
         }
-    });
+            else if(currentIndex == "*"){
+                accumulator * currentValue, initialValue;
+            }
+            else if(currentIndex == "+"){
+                accumulator + currentValue, initialValue;
+            }
+            else if(currentIndex == "-"){
+                accumulator - currentValue, initialValue;
+            }
+            else return
+        //}
+    })
     console.log(finalDisplayWindow)
 }
 

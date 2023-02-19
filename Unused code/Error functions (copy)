@@ -1,0 +1,106 @@
+const errorFunctions = function errorFunctions(newDisplayWindow){
+    checkLeadingOperator(newDisplayWindow);
+    checkLaggingOperator(newDisplayWindow);
+    checkLaggingDecimal(newDisplayWindow);
+    checkParenthesis(newDisplayWindow);
+    checkConsecutiveOperators(newDisplayWindow);
+    checkForLaggingParenthesisNumber(newDisplayWindow);
+    //checkSignChange(newDisplayWindow);
+    
+ };
+ const checkLeadingOperator = function leadingOperator(newDisplayWindow){
+    let testPosition = (newDisplayWindow.slice(0,1)).toString();
+    let testType = "Leading Operator";
+    switch(testPosition){
+        case "+":
+            console.log(`Error: ${testType} "${testPosition}"`)
+            break
+        case "-":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
+        case "*":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
+        case "/":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
+    }
+}
+
+const checkLaggingOperator = function checkLaggingOperator(newDisplayWindow){
+    let testPosition = newDisplayWindow[newDisplayWindow.length-1];
+    let testType = "Lagging Operator";
+    switch(testPosition){
+        case "+":
+            console.log(`Error: ${testType} "${testPosition}"`)
+            break
+        case "-":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
+        case "*":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
+        case "/":
+            console.log(`Error: Leading Operator "${testPosition}"`)
+            break
+    }
+}
+
+const checkLaggingDecimal = function checkLaggingDecimal(newDisplayWindow){
+    let testPosition = newDisplayWindow[newDisplayWindow.length-1];
+    testType = "Lagging Decimal";
+    switch(testPosition){
+        case ".":
+            console.log(`Error: ${testType} "${testPosition}"`)
+            break
+    }
+}
+
+const checkConsecutiveOperators = function consecutiveOperators(newDisplayWindow){
+    for(let counter = 0; counter < newDisplayWindow.length; counter++){
+    let operators = ["*", "/", "+"];
+    let test1 = newDisplayWindow[counter];
+    let test2 = newDisplayWindow[counter+1];
+    if(operators.includes(test1) && operators.includes(test2)){
+        console.log("Error - Consecutive operators found");
+    }
+    }
+}
+const checkParenthesis = function parenthesis(newDisplayWindow){
+    let numberOpenParenthesis = 0;
+    let numberClosedParenthesis = 0;
+    newDisplayWindow.forEach(element => {
+        if(element == "("){
+            numberOpenParenthesis++;
+        }
+        else return
+    });
+    newDisplayWindow.forEach(element => {
+        if(element == ")"){
+            numberClosedParenthesis++;
+        }
+        else return
+    })
+    if(numberOpenParenthesis > numberClosedParenthesis){
+        console.log(`Error: Incorrect ) placement (Missing closed parenthesis)`);
+    }
+    else if(numberClosedParenthesis > numberOpenParenthesis){
+        console.log(`Error: Incorrect ( placement (Missing open parenthesis)`);
+    }
+}
+
+const checkForLaggingParenthesisNumber = function laggingParenthesisNumber(newDisplayWindow){
+    for(let counter = 0; counter < newDisplayWindow.length; counter++){
+        numberTest = parseInt(newDisplayWindow[counter], 10);
+        let testsFor = [numberTest, ")"];
+        let testsAgainst = newDisplayWindow[counter];
+        console.log(`Index: ${counter} - ${testsFor.includes(testsAgainst)}`);
+        //if(parenthesis.includes(test1) && test2)
+    }
+}
+const checkSignChange = function signChange(newDisplayWindow){
+    //Find sign change index, and next character
+        //if next != number, error
+        //else
+            //
+}
