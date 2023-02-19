@@ -152,7 +152,7 @@ const dataFunctions = function dataFunctions(displayWindowArray){
     combineDecimalNumbers(displayWindowArray);
     signChange(displayWindowArray);
     signChange(displayWindowArray);
-    mergeBetweenParenthesis(displayWindowArray);
+    //mergeBetweenParenthesis(displayWindowArray);
     finalEvaluations(displayWindowArray);
 }
 const combineNumbers = function combineNumbers(displayWindowArray){
@@ -290,41 +290,13 @@ const mergeBetweenParenthesis = function mergeBetweenParenthesis(displayWindowAr
 }
 
 const finalEvaluations = function finalEvaluations(displayWindowArray){
-    /*
-    if(initialValue == undefined){
-        reduce((accumulator, currentValue, currentIndex) => {
-            if(currentIndex == "/"){
-
-            }
-            else if(currentIndex == "*"){
-
-            }
-            else if(currentIndex == "+"){
-
-            }
-            else if(currentIndex == "-"){
-                
-            }
-        })
-    }
-    else if(initialValue == Number){
-        reduce((accumulator, currentValue, currentIndex) => {
-            accumulator = finalDisplayWindow;
-            if(currentIndex == "/"){
-                accumulator/currentValue
-            }
-            else if(currentIndex == "*"){
-
-            }
-            else if(currentIndex == "+"){
-
-            }
-            else if(currentIndex == "-"){
-
-            }
-        })
-    }
-    */
+    let finalDisplayWindow = [];
+    displayWindowArray.forEach(element => {
+        if(element == "("){
+            finalDisplayWindow.push([(])
+        }
+    });
+    console.log(finalDisplayWindow)
 }
 
 //Event Listeners
