@@ -9,7 +9,7 @@ const testButtonClick = function testButtonClick(e){//Debug
         return
     }
     else if(e.target.classList == 'testButton'){
-        let buttonPresses = '((1+123))+((123-548))';//Add here
+        let buttonPresses = '1+123+123-548';//Add here
         let splitTest = buttonPresses.split('');
         splitTest.forEach((element, index) => {
             splitTest.splice(index, 1, `e${element}`)
@@ -224,25 +224,26 @@ const signChange = function signChange(displayWindowArray){
 }
 
 const finalEvaluations = function finalEvaluations(displayWindowArray){
-    let initialValue = displayWindowArray[0]
+    if(initialValue != undefined){
+        let initialValue = 0;
+    }
+    else initialValue = finalDisplayWindow;
     let finalDisplayWindow = displayWindowArray.reduce((accumulator, currentValue, currentIndex) => {
-        //if(initialValue == Number){
-            accumulator = parseInt(accumulator);
-            currentValue = parseInt(currentValue);
-            if(currentIndex == "/"){
-                accumulator / currentValue, initialValue;
+        accumulator = parseInt(accumulator);
+        currentValue = parseInt(currentValue);
+        if(currentIndex == "/"){
+            accumulator / currentValue, initialValue;
         }
-            else if(currentIndex == "*"){
-                accumulator * currentValue, initialValue;
-            }
-            else if(currentIndex == "+"){
-                accumulator + currentValue, initialValue;
-            }
-            else if(currentIndex == "-"){
-                accumulator - currentValue, initialValue;
-            }
-            else return
-        //}
+        else if(currentIndex == "*"){
+            accumulator * currentValue, initialValue;
+        }
+        else if(currentIndex == "+"){
+            accumulator + currentValue, initialValue;
+        }
+        else if(currentIndex == "-"){
+            accumulator - currentValue, initialValue;
+        }
+        else return
     })
     console.log(finalDisplayWindow)
 }
@@ -251,8 +252,6 @@ const finalEvaluations = function finalEvaluations(displayWindowArray){
 document.addEventListener("click", numberClick);
 document.addEventListener("click", operatorClick);
 document.addEventListener("click", clearButtonClick);
-document.addEventListener("click", openParenthesisButtonClick);
-document.addEventListener("click", closedParenthesisButtonClick);
 document.addEventListener("click", backspaceButtonClick);
 document.addEventListener("click", signChangeButtonClick);
 document.addEventListener("click", decimalButtonClick);
