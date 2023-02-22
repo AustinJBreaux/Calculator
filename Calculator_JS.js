@@ -9,7 +9,7 @@ const testButtonClick = function testButtonClick(e){//Debug
         return
     }
     else if(e.target.classList == 'testButton'){
-        let buttonPresses = '1+123+123-548';//Add here
+        let buttonPresses = '1*123+8/123+12-11';//Add here
         let splitTest = buttonPresses.split('');
         splitTest.forEach((element, index) => {
             splitTest.splice(index, 1, `e${element}`)
@@ -224,11 +224,35 @@ const signChange = function signChange(displayWindowArray){
 }
 
 const finalEvaluations = function finalEvaluations(displayWindowArray){
-    if(initialValue != undefined){
-        let initialValue = 0;
+    let initialValue = 0;
+    let operatorOrder = displayWindowArray.filter(displayWindowArray.includes(["*", "/", "+", "-"]));
+    let numberOrder = displayWindowArray.filter(Number.isInteger(displayWindowArray));
+    console.log(`Operator: ${operatorOrder}, Number: ${numberOrder}`)
+    /*
+    if(initialValue == 0){
+        let finalDisplayWindow = displayWindowArray.reduce((accumulator, currentValue, currentIndex) => {
+            
+            if(currentIndex == "/"){
+                accumulator / currentValue, initialValue;
+            }
+            else if(currentIndex == "*"){
+                accumulator * currentValue, initialValue;
+            }
+            else if(currentIndex == "+"){
+                accumulator + currentValue, initialValue;
+            }
+            else if(currentIndex == "-"){
+                accumulator - currentValue, initialValue;
+            }
+            else return
+            })
+            console.log(finalDisplayWindow)
+            
     }
-    else initialValue = finalDisplayWindow;
-    let finalDisplayWindow = displayWindowArray.reduce((accumulator, currentValue, currentIndex) => {
+    else return
+
+    else if(initialValue = finalDisplayWindow){
+        let finalDisplayWindow = displayWindowArray.reduce((accumulator, currentValue, currentIndex) => {
         accumulator = parseInt(accumulator);
         currentValue = parseInt(currentValue);
         if(currentIndex == "/"){
@@ -244,9 +268,12 @@ const finalEvaluations = function finalEvaluations(displayWindowArray){
             accumulator - currentValue, initialValue;
         }
         else return
-    })
-    console.log(finalDisplayWindow)
-}
+        })
+        */
+    }
+    
+    //console.log(finalDisplayWindow)
+//}
 
 //Event Listeners
 document.addEventListener("click", numberClick);
