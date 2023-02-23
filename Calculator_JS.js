@@ -224,29 +224,37 @@ const signChange = function signChange(displayWindowArray){
 }
 
 const finalEvaluations = function finalEvaluations(displayWindowArray){
-    let initialValue = 0;
-    let operatorOrder = displayWindowArray.filter(displayWindowArray.includes(["*", "/", "+", "-"]));
+    do{
+        if(displayWindowArray[1] == "/"){
+            Number.parseInt(displayWindowArray[0]) / Number.parseInt(displayWindowArray[2]);
+            //Splice
+        }
+        else if(displayWindowArray[1] == "*"){
+            Number.parseInt(displayWindowArray[0]) * Number.parseInt(displayWindowArray[2]);
+            //Splice
+        }
+        else if(displayWindowArray[1] == "+"){
+            Number.parseInt(displayWindowArray[0]) + Number.parseInt(displayWindowArray[2]);
+            //Splice
+        }
+        else if(displayWindowArray[1] == "-"){
+            Number.parseInt(displayWindowArray[0]) - Number.parseInt(displayWindowArray[2]);
+            //Splice
+        }
+        else return
+    }
+    while(
+        displayWindowArray > 1
+    );
+    
+    /*
+    let operatorOrder = displayWindowArray.filter(testValue => testValue.includes(displayWindowArray));
     let numberOrder = displayWindowArray.filter(Number.isInteger(displayWindowArray));
     console.log(`Operator: ${operatorOrder}, Number: ${numberOrder}`)
-    /*
     if(initialValue == 0){
         let finalDisplayWindow = displayWindowArray.reduce((accumulator, currentValue, currentIndex) => {
             
-            if(currentIndex == "/"){
-                accumulator / currentValue, initialValue;
-            }
-            else if(currentIndex == "*"){
-                accumulator * currentValue, initialValue;
-            }
-            else if(currentIndex == "+"){
-                accumulator + currentValue, initialValue;
-            }
-            else if(currentIndex == "-"){
-                accumulator - currentValue, initialValue;
-            }
-            else return
-            })
-            console.log(finalDisplayWindow)
+            
             
     }
     else return
