@@ -9,7 +9,7 @@ const testButtonClick = function testButtonClick(e){//Debug
         return
     }
     else if(e.target.classList == 'testButton'){
-        let buttonPresses = '1*123+8/123+12-11';//Add here
+        let buttonPresses = '256*978+65412-69874/256';//Add here
         let splitTest = buttonPresses.split('');
         splitTest.forEach((element, index) => {
             splitTest.splice(index, 1, `e${element}`)
@@ -225,28 +225,37 @@ const signChange = function signChange(displayWindowArray){
 
 const finalEvaluations = function finalEvaluations(displayWindowArray){
     do{
+        let replace = 0;
         if(displayWindowArray[1] == "/"){
-            Number.parseInt(displayWindowArray[0]) / Number.parseInt(displayWindowArray[2]);
-            //Splice
+            replace = Number.parseInt(displayWindowArray[0]) / Number.parseInt(displayWindowArray[2]);
+            replace = Math.round((replace + Number.EPSILON) * 100) / 100
+            displayWindowArray.splice(0, 1, replace);
+            displayWindowArray.splice(1, 2);
         }
         else if(displayWindowArray[1] == "*"){
-            Number.parseInt(displayWindowArray[0]) * Number.parseInt(displayWindowArray[2]);
-            //Splice
+            replace = Number.parseInt(displayWindowArray[0]) * Number.parseInt(displayWindowArray[2]);
+            replace = Math.round((replace + Number.EPSILON) * 100) / 100
+            displayWindowArray.splice(0, 1, replace);
+            displayWindowArray.splice(1, 2);
         }
         else if(displayWindowArray[1] == "+"){
-            Number.parseInt(displayWindowArray[0]) + Number.parseInt(displayWindowArray[2]);
-            //Splice
+            replace = Number.parseInt(displayWindowArray[0]) + Number.parseInt(displayWindowArray[2]);
+            replace = Math.round((replace + Number.EPSILON) * 100) / 100
+            displayWindowArray.splice(0, 1, replace);
+            displayWindowArray.splice(1, 2);
         }
         else if(displayWindowArray[1] == "-"){
-            Number.parseInt(displayWindowArray[0]) - Number.parseInt(displayWindowArray[2]);
-            //Splice
+            replace = Number.parseInt(displayWindowArray[0]) - Number.parseInt(displayWindowArray[2]);
+            replace = Math.round((replace + Number.EPSILON) * 100) / 100
+            displayWindowArray.splice(0, 1, replace);
+            displayWindowArray.splice(1, 2);
         }
         else return
     }
     while(
-        displayWindowArray > 1
+        displayWindowArray != 1
     );
-    
+    console.log(displayWindowArray);
     /*
     let operatorOrder = displayWindowArray.filter(testValue => testValue.includes(displayWindowArray));
     let numberOrder = displayWindowArray.filter(Number.isInteger(displayWindowArray));
