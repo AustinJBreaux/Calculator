@@ -222,7 +222,6 @@ const signChange = function signChange(displayWindowArray){
         }
     });
 }
-
 const finalEvaluations = function finalEvaluations(displayWindowArray){
     do{
         let replace = 0;
@@ -256,41 +255,8 @@ const finalEvaluations = function finalEvaluations(displayWindowArray){
         displayWindowArray != 1
     );
     console.log(displayWindowArray);
-    /*
-    let operatorOrder = displayWindowArray.filter(testValue => testValue.includes(displayWindowArray));
-    let numberOrder = displayWindowArray.filter(Number.isInteger(displayWindowArray));
-    console.log(`Operator: ${operatorOrder}, Number: ${numberOrder}`)
-    if(initialValue == 0){
-        let finalDisplayWindow = displayWindowArray.reduce((accumulator, currentValue, currentIndex) => {
-            
-            
-            
-    }
-    else return
+}
 
-    else if(initialValue = finalDisplayWindow){
-        let finalDisplayWindow = displayWindowArray.reduce((accumulator, currentValue, currentIndex) => {
-        accumulator = parseInt(accumulator);
-        currentValue = parseInt(currentValue);
-        if(currentIndex == "/"){
-            accumulator / currentValue, initialValue;
-        }
-        else if(currentIndex == "*"){
-            accumulator * currentValue, initialValue;
-        }
-        else if(currentIndex == "+"){
-            accumulator + currentValue, initialValue;
-        }
-        else if(currentIndex == "-"){
-            accumulator - currentValue, initialValue;
-        }
-        else return
-        })
-        */
-    }
-    
-    //console.log(finalDisplayWindow)
-//}
 
 //Event Listeners
 document.addEventListener("click", numberClick);
