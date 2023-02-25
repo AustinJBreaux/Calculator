@@ -46,7 +46,7 @@ const operatorClick = function operatorClick(e){
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + `e${toInsert}`
-        console.log(toInsert);
+        displayWindowHTML.innerHTML += toInsert;
     }
 }
 
