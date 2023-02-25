@@ -24,15 +24,17 @@ const numberClick = function numberClick(e){
         return
     }
     else if (displayWindow === undefined || displayWindow.length == 0){
+        let displayWindowHTML = document.querySelector('.displayWindow');
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + `e${toInsert}`;
-        console.log(toInsert);
+        displayWindowHTML.innerHTML += toInsert;
     }
     
     else if(displayWindow[displayWindow.length-1] = numberRegExp){
+        let displayWindowHTML = document.querySelector('.displayWindow');
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + `e${toInsert}`;
-        console.log(toInsert);
+        displayWindowHTML.innerHTML += toInsert;
     }
     
     else return
