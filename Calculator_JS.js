@@ -2,6 +2,7 @@
 let displayWindow = '';
 let numberRegExp = [0-9];
 let operatorRegExp = [/\+\/\*/i]
+let displayWindowHTML = document.querySelector('.displayWindow');
 
 //Button Functions
 const testButtonClick = function testButtonClick(e){//Debug
@@ -24,14 +25,12 @@ const numberClick = function numberClick(e){
         return
     }
     else if (displayWindow === undefined || displayWindow.length == 0){
-        let displayWindowHTML = document.querySelector('.displayWindow');
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + `e${toInsert}`;
         displayWindowHTML.innerHTML += toInsert;
     }
     
     else if(displayWindow[displayWindow.length-1] = numberRegExp){
-        let displayWindowHTML = document.querySelector('.displayWindow');
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + `e${toInsert}`;
         displayWindowHTML.innerHTML += toInsert;
