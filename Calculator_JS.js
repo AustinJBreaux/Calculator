@@ -79,6 +79,7 @@ const signChangeButtonClick = function signChangeButtonClick(e){
     else{
         console.log(' -');
         displayWindow = displayWindow + `e -`;
+        displayWindowHTML.innerHTML += " -";
     }
  }
 
