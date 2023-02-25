@@ -65,8 +65,9 @@ const backspaceButtonClick = function backspaceButtonClick(e){
     if(e.target.classList != 'backspaceButton'){
         return
     }
-    else if(displayWindow.noSuchProperty === undefined){
+    else if(displayWindow.noSuchProperty === undefined){//Working on this
         displayWindow = displayWindow.slice(0,-1);
+        displayWindowHTML.innerHTML = displayWindowHTML.innerHTML.slice(0, -1);
     }
 }
 
