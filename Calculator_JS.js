@@ -56,6 +56,7 @@ const clearButtonClick = function clearButtonClick(e){
     }
     else if(displayWindow.noSuchProperty === undefined){
         displayWindow = ''
+        displayWindowHTML.innerHTML = '';
         console.clear();
     }
 }
