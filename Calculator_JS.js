@@ -61,28 +61,6 @@ const clearButtonClick = function clearButtonClick(e){
     }
 }
 
-const openParenthesisButtonClick = function parenthesisButtonClick(e){
-    if(e.target.classList != 'openParenthesisButton'){
-        return
-    }
-    else if(displayWindow.noSuchProperty === undefined){
-        let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `e${toInsert}`
-        console.log(toInsert);
-    }
-}
-
-const closedParenthesisButtonClick = function parenthesisButtonClick(e){
-    if(e.target.classList != 'closedParenthesisButton'){
-        return
-    }
-    else if(displayWindow.noSuchProperty === undefined){
-        let toInsert = e.target.innerText;
-        displayWindow = displayWindow + `e${toInsert}`
-        console.log(toInsert);
-    }
-}
-
 const backspaceButtonClick = function backspaceButtonClick(e){
     if(e.target.classList != 'backspaceButton'){
         return
