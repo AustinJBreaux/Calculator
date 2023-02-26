@@ -90,7 +90,7 @@ const decimalButtonClick = function decimalButtonClick(e){
     else if(displayWindow.noSuchProperty === undefined){
         let toInsert = e.target.innerText;
         displayWindow = displayWindow + `e${toInsert}`;
-        console.log(toInsert);
+        displayWindowHTML.innerHTML += toInsert;
     }
  }
 
@@ -106,11 +106,7 @@ const decimalButtonClick = function decimalButtonClick(e){
         displayWindowArray = displayWindowArray.filter(displayWindowArray => displayWindowArray != "");
         checkDividingByZero(displayWindowArray);
         dataFunctions(displayWindowArray);
-        for(let counter = 0; counter < 10; counter++){//Replace with do while length != 1
-
-        }
-         
-    console.log(displayWindowArray);
+        console.log(displayWindowArray);
     }
  }
 
@@ -208,30 +204,31 @@ const finalEvaluations = function finalEvaluations(displayWindowArray){
     do{
         let replace = 0;
         if(displayWindowArray[1] == "/"){
-            replace = Number.parseInt(displayWindowArray[0]) / Number.parseInt(displayWindowArray[2]);
-            replace = Math.round((replace + Number.EPSILON) * 100) / 100
+            replace = Number.parseFloat(displayWindowArray[0]) / Number.parseFloat(displayWindowArray[2]);
+            replace = +replace.toFixed(2);
             displayWindowArray.splice(0, 1, replace);
             displayWindowArray.splice(1, 2);
         }
         else if(displayWindowArray[1] == "*"){
-            replace = Number.parseInt(displayWindowArray[0]) * Number.parseInt(displayWindowArray[2]);
-            replace = Math.round((replace + Number.EPSILON) * 100) / 100
+            replace = Number.parseFloat(displayWindowArray[0]) * Number.parseFloat(displayWindowArray[2]);
+            replace = +replace.toFixed(2);
             displayWindowArray.splice(0, 1, replace);
             displayWindowArray.splice(1, 2);
         }
         else if(displayWindowArray[1] == "+"){
-            replace = Number.parseInt(displayWindowArray[0]) + Number.parseInt(displayWindowArray[2]);
-            replace = Math.round((replace + Number.EPSILON) * 100) / 100
+            replace = Number.parseFloat(displayWindowArray[0]) + Number.parseFloat(displayWindowArray[2]);
+            replace = +replace.toFixed(2);
             displayWindowArray.splice(0, 1, replace);
             displayWindowArray.splice(1, 2);
         }
         else if(displayWindowArray[1] == "-"){
-            replace = Number.parseInt(displayWindowArray[0]) - Number.parseInt(displayWindowArray[2]);
-            replace = Math.round((replace + Number.EPSILON) * 100) / 100
+            replace = Number.parseFloat(displayWindowArray[0]) - Number.parseFloat(displayWindowArray[2]);
+            replace = +replace.toFixed(2);
             displayWindowArray.splice(0, 1, replace);
             displayWindowArray.splice(1, 2);
         }
         else return
+        
     }
     while(
         displayWindowArray != 1
