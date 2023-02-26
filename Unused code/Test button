@@ -1,0 +1,18 @@
+				Javascript
+const testButtonClick = function testButtonClick(e){//Debug
+    if(e.target.classList != 'testButton'){
+        return
+    }
+    else if(e.target.classList == 'testButton'){
+        let buttonPresses = '256*978+65412-69874/256';//Add here
+        let splitTest = buttonPresses.split('');
+        splitTest.forEach((element, index) => {
+            splitTest.splice(index, 1, `e${element}`)
+        });
+        displayWindow = splitTest.join('');
+        console.log(`Pressing ${buttonPresses}`);
+    }
+    else return
+}
+					HTML
+
