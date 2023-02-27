@@ -1,20 +1,7 @@
-/*Notes
-Style the HTML buttons in the form of a calculator
-Different colors for the numbers, operators, clear, backspace, and enter buttons
-checkbox
-clearButton Red back, gray text
-backspaceButton gray back, red text
-operatorButton grey back, green text
-enterButton green back, white text
-numberButton grey back, white text
-signChangeButton grey back, blue text, flash pink on click
-decimalButton grey back, white text
-*/
-
-/*.checkbox{
+.checkbox{
  
 }
-*/
+
 .clearButton{
     background-color: darkred;
     color: black;
@@ -37,13 +24,16 @@ decimalButton grey back, white text
 }
 
 .numberButton{
-
+    background-color: grey;
+    color: black;
 }
 
 .signChangeButton{
-
+    background-color: grey;
+    color: lightblue;
 }
 
 .decimalButton{
-
+    background-color: grey;
+    color: black;
 }
