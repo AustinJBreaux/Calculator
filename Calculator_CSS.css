@@ -22,7 +22,8 @@ decimalButton grey back, white text
 }
 
 .backspaceButton{
-
+    background-color: gray;
+    color: darkred;
 }
 
 .operatorButton{
