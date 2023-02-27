@@ -27,11 +27,13 @@ decimalButton grey back, white text
 }
 
 .operatorButton{
-
+    background-color: grey;
+    color: lightgreen;
 }
 
 .enterButton{
-
+    background-color: green;
+    color: black;
 }
 
 .numberButton{
