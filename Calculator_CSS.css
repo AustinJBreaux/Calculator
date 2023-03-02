@@ -1,7 +1,9 @@
 .checkbox{
  
 }
-
+.displayWindow{
+    height: 15px;
+}
 .clearButton{
     background-color: darkred;
     color: black;
