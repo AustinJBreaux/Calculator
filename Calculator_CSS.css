@@ -1,8 +1,15 @@
 .checkbox{
- 
+    
 }
+.row1, .row2, .row3, .row4, .row5{
+    display: flex;
+    justify-content: center;
+}
+
 .displayWindow{
     height: 15px;
+    display: flex;
+    justify-content: center;
 }
 .clearButton{
     background-color: darkred;
