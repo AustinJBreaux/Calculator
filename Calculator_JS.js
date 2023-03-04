@@ -36,7 +36,7 @@ const clearButtonClick = function clearButtonClick(e){
         return
     }
     else if(displayWindow.noSuchProperty === undefined){
-        displayWindow = ''
+        displayWindow = '';
         displayWindowHTML.innerHTML = '';
         console.clear();
     }
@@ -93,6 +93,15 @@ const checkDividingByZero = function dividingByZero(displayWindowArray){
             return
         }
     });
+}
+
+//Keyboard Master Control
+const buttonPresses = function buttonPresses(e){
+    let checkbox = document.getElementById("keyboardSupport");
+    if(checkbox.checked == true){
+        console.log("True")
+    }
+    else console.log("False"); return
 }
 
 //Data Functions
@@ -209,7 +218,7 @@ const finalEvaluations = function finalEvaluations(displayWindowArray){
     console.log(displayWindowArray);
 }
 
-//Event Listeners
+//Mouse Click Event Listeners
 document.addEventListener("click", numberClick);
 document.addEventListener("click", operatorClick);
 document.addEventListener("click", clearButtonClick);
@@ -217,3 +226,5 @@ document.addEventListener("click", backspaceButtonClick);
 document.addEventListener("click", signChangeButtonClick);
 document.addEventListener("click", decimalButtonClick);
 document.addEventListener("click", enterButtonClick);
+//Keyboard Event Listeners
+document.addEventListener("keydown", buttonPresses);
