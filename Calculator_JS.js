@@ -97,9 +97,10 @@ const checkDividingByZero = function dividingByZero(displayWindowArray){
 
 //Keyboard Master Control
 const buttonPresses = function buttonPresses(e){
+    e.preventDefault();
     let checkbox = document.getElementById("keyboardSupport");
     if(checkbox.checked == true){
-        console.log("True")
+        console.log(e.key); 
     }
     else console.log("False"); return
 }
