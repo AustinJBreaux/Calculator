@@ -38,7 +38,6 @@ const clearButtonClick = function clearButtonClick(e) {
     else if (displayWindow.noSuchProperty === undefined) {
         displayWindow = '';
         displayWindowHTML.innerHTML = '';
-        console.clear();
     }
 }
 const backspaceButtonClick = function backspaceButtonClick(e) {
@@ -83,14 +82,12 @@ const enterButtonClick = function enterButtonClick(e) {
         displayWindowArray = displayWindowArray.filter(displayWindowArray => displayWindowArray != "");
         checkDividingByZero(displayWindowArray);
         dataFunctions(displayWindowArray);
-        console.log(displayWindowArray);
     }
 }
 const checkDividingByZero = function dividingByZero(displayWindowArray) {
     displayWindowArray.forEach((element, index) => {
         if (element == "/" && displayWindowArray[index + 1] == "0") {
-            console.log("Error - Division by zero");
-            return
+            alert("Error - Division by zero"); 
         }
     });
 }
@@ -101,11 +98,9 @@ const buttonPresses = function buttonPresses(e) {
     let keys = ["/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", "."];
     let checkbox = document.getElementById("keyboardSupport");
     if (checkbox.checked == true) {
-        console.log(e.key);
         if (e.ctrlKey && e.key === "Backspace") {
             displayWindow = '';
             displayWindowHTML.innerHTML = '';
-            console.clear();
         }
         else if(e.key === "Backspace"){
             displayWindow = displayWindow.slice(0, -1);
@@ -120,7 +115,6 @@ const buttonPresses = function buttonPresses(e) {
             displayWindowArray = displayWindowArray.filter(displayWindowArray => displayWindowArray != "");
             checkDividingByZero(displayWindowArray);
             dataFunctions(displayWindowArray);
-            console.log(displayWindowArray);
         }
         else if(keys.includes(e.key)){
             toInsert = e.key;
