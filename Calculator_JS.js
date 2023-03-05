@@ -123,8 +123,9 @@ const buttonPresses = function buttonPresses(e) {
         }
         else return
     }
-    else return
+    else directions.style.display = "block"; return
 }
+
 
 //Data Functions
 const dataFunctions = function dataFunctions(displayWindowArray) {
