@@ -111,7 +111,18 @@ const buttonPresses = function buttonPresses(e) {
             displayWindow = displayWindow.slice(0, -1);
             displayWindowHTML.innerHTML = displayWindowHTML.innerHTML.slice(0, -1);
         }
-        else if (keys.includes(e.key)){
+        else if(e.key === "-" && e.ctrlKey){
+            displayWindow = displayWindow + "e -";
+            displayWindowHTML.innerHTML = displayWindowHTML.innerHTML + " -";
+        }
+        else if(e.key === "Enter"){
+            let displayWindowArray = displayWindow.split('e');
+            displayWindowArray = displayWindowArray.filter(displayWindowArray => displayWindowArray != "");
+            checkDividingByZero(displayWindowArray);
+            dataFunctions(displayWindowArray);
+            console.log(displayWindowArray);
+        }
+        else if(keys.includes(e.key)){
             toInsert = e.key;
             displayWindow = displayWindow + `e${toInsert}`;
             displayWindowHTML.innerHTML += toInsert;
