@@ -140,6 +140,8 @@ const dataFunctions = function dataFunctions(displayWindowArray) {
     signChange(displayWindowArray);
     signChange(displayWindowArray);
     finalEvaluations(displayWindowArray);
+    displayWindowHTML.innerHTML = "";
+    displayWindowHTML.innerHTML =+ displayWindowArray.toString();
 }
 const combineNumbers = function combineNumbers(displayWindowArray) {
     /*Note: 
@@ -238,12 +240,10 @@ const finalEvaluations = function finalEvaluations(displayWindowArray) {
             displayWindowArray.splice(1, 2);
         }
         else return
-
     }
     while (
         displayWindowArray != 1
     );
-    console.log(displayWindowArray);
 }
 
 //Mouse Click Event Listeners
